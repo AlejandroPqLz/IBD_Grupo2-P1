@@ -4,9 +4,9 @@
 
 ## Descripción
 
-La imagen `ibd-g2/export_data_gob` es una imagen de Docker utilizada para desplegar un repositorio RDF con los datos Turtle (.ttl) de un conjunto de datos de incendios forestales, disponibles en [datos.gob](https://datos.gob.es/es) e importados en GraphDB. Esta imagen, se basa en la última versión de la plataforma GraphDB proporcionada por Ontotext.
+Imagen que despliega un repositorio RDF con datos Turtle de datos.gob e importados en GraphDB.
 
-Esta imagen ha sido diseñada por: Noa Chu, Che Cui, Carlota Mendrano y Alejandro Pequeño para realizar la práctica 1 de la asignatura de Infraestructuras de Big Data del grado de Ciencia de datos e Inteligencia Artificial de la UPM. La imagen es configurable y personalizable, por lo que se puede adaptar a las necesidades del usuario, además es ideal para la importación de grandes conjuntos de datos RDF.
+**NOTA**: La descripción es tan corta pues DockerHub solo admite 100 caracteres para la esta.
 
 ## README.md
 
