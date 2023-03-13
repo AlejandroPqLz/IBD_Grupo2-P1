@@ -15,7 +15,7 @@
 
 1.1 Dirígete al buscador de Windows y teclea `cmd` o `powershell` para abrir la terminal de tu ordenador.
     
-**NOTA:** Si no tienes instalado Git en tu ordenador, puedes descargarlo desde [aquí](https://git-scm.com/downloads).
+**NOTA:** Si no tienes instalado Git en tu ordenador, puedes descargarlo desde [aquí](https://git-scm.com/downloads). También necesitarás Docker, que lo puedes descargarlo desde [aquí](https://www.docker.com/products/docker-desktop/)
 
 1.2 Una vez en la terminal, sitúate en la carpeta donde quieres clonar el repositorio y ejecuta el siguiente comando: `cd <path>`.
 
@@ -57,12 +57,12 @@ Gracias a la ejecución de la imagen y publicar los puertos ya podemos acceder a
 
 ### 5. Despliegue del repositorio RDF e importación de archivos
 
-Una vez accedido al servicio via web, procedemos a crear nuestro repositorio RDF. Para ello, le damos a `create new repository` y posteriormente elegimos la opción `graphDB Reository`.
-`Import file`- `upload RDF files`. Fickertos `.ttl` menores a 200MB.
+Una vez accedido al servicio via web, procedemos a crear nuestro repositorio RDF. Para ello, pulsamos en `setup` en la parte izquierda de la pantalla y le damos a `Repositories`. Una vez dentro, pinchamos `create new repository` y después `GraphDB Repository`, le asignamos un Repository ID y `Create`. 
+A continuación, accedes a tu repositorio y en `Import`-`Server files` deberían estar disponible ñlos archivos ttl.
 
 ### 6. Creación de la imagen con el repositorio RDF
 
-Ya tenemos importados todos los arcihvos .ttl de data.gob desde el repositorio "data". Ahora, debemos de crear una nueva imagen con el repositorio RDF creado. Para ello, ejecutamos el siguiente comando: 
+Ya tenemos importados todos los arcihvos .ttl de data.gob desde tu repositorio. Ahora, debemos de crear una nueva imagen con el repositorio RDF creado. Para ello, ejecutamos el siguiente comando: 
 
 `docker commit <container_id or name> <new_image_name>`: docker commit contenedor_rdf ibd-g2/export_data_gob
 
