@@ -25,11 +25,11 @@ Gracias al clonado, encontrarás todos los archivos necesarios para realizar el 
 
 Perfecto! ya hemos creado una imagen Docker con los requisitos mencionados en el objetivo de la práctica. Puedes visualizarla ejecutando el siguiente comando en tu terminal: `docker images` ->
 
-'''
+```
 REPOSITORY   TAG       IMAGE ID       CREATED          SIZE
 ibd_g2       latest    64920a562003   10 minutes ago   681MB
 ...          ...       ...            ...              ...
-'''
+```
 
 ### 3.Ejecución de la imagen (contenedor)
 
