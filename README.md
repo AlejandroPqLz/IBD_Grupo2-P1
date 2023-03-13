@@ -3,9 +3,9 @@
 - En el siguiente repositorio, encontrarás todos los archivos necesarios para realizar la ***Práctica 1 de la asignatura de Infraestructura para Big Data***. Entre los archivos anteriormente mencionados están:
 
     - [Dockerfile](Dockerfile): instrucciones necesarias para crear la imagen Docker que contendrá el servicio virtual que se desplegará en el contenedor.
-    - [License.md](License.md): licencia de uso de los archivos del repositorio.
-    - [README.md](README.md): descripción de la práctica y los pasos a seguir para realizarla con éxito.
-    - [MAC_guide.ipynb](MAC_guide.ipynb): guía para clonar repositorios GIT desde el sistema operativo MAC OS.
+    - [License](License.md): licencia de uso de los archivos del repositorio.
+    - [README](README.md): descripción de la práctica y los pasos a seguir para realizarla con éxito.
+    - [MAC_guide](MAC_guide.ipynb): guía para clonar repositorios GIT desde el sistema operativo MAC OS.
 
 Todos los archivos han sido creados y modificados por los miembros del **Grupo 2** de la asignatura de IBD de ***Ciencia de Datos e Inteligencia Artificial de la Universidad Politécnica de Madrid*** (*UPM*): Noa Chu, Che Cui, Carlota Medrano, Alejandro Pequeño
 ****
@@ -13,7 +13,7 @@ Todos los archivos han sido creados y modificados por los miembros del **Grupo 2
 ## Objetivo:
 
 
-- Crear una imagen Docker, disponible en DockerHub, que despliegue un repositorio RDF con los datos importados desde ficheros Turtle extraídos de un conjunto de datos disponible en[datos.gob](https://datos.gob.es/es)
+- Crear una imagen Docker, disponible en DockerHub, que despliegue un repositorio RDF con los datos importados desde ficheros Turtle extraídos de un conjunto de datos disponible en [datos.gob](https://datos.gob.es/es)
 ****
 
 ## Pasos:
