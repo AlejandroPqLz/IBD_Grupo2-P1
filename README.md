@@ -43,17 +43,21 @@ Ejecutamos el contendor en modo "detached", en segundo plano, con `-d` y publica
 
 Gracias a la ejecución de la imagen y publicar los puertos ya podemos acceder al servicio vía web a través de la dirección local del puerto 7200: `http://localhost:7200/`.
 
-### 5. Despliegue del repositorio RDF
+### 5. Despliegue del repositorio RDF e importación de archivos
 
-
+Una vez accedido al servicio via web, procedemos a crear nuestro repositorio RDF. Para ello, 
 
 ### 6. Creación de la imagen con el repositorio RDF
 
-
+Ya tenemos importados todos los arcihvos .ttl de data.gob desde el repositorio "data". Ahora, debemos de
 
 ### 7. Publicación de la imagen en DockerHub
 
+¡Ya queda poco!, tenemos la imagen Docker con todos los requisitos mencionados en el objetivo, pero ahora tenemos que hacer que este disponible en DockerHub. Este paso es muy sencillo y basta con escribir el siguiente comando: 
 
+`docker push ibd-g2/export_data_gob`
+
+Al terminar la operación, ya podremos acceder a DockerHub y ver que la imagen se encuentra ahí. Pero la imagen se encuentra sin ningún tipo de información por lo que desde DockerHub puede añadirle una descripción y un README.md (README_DH.md del repositorio que incluye la descripción) a nivel de usuario para que cualquiera con un `docker pull ibd-g2/export_data_gob` pueda obtener tu imagen, ejecutarla y saber qué imagen es y qué puede hacer.
 
 ### 8. Explorar y probar su contenido
 
