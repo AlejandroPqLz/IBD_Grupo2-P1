@@ -1,16 +1,16 @@
 # DockerHub
 
-- Este es un archivo markdown con la información necesaria para poder completar la distribución del servicio que generamos en esta práctica a la vez que el apartado de reproducibilidad. Es decir,se aportará una descripción de su contenido con información de utilización de la imagen `ibd-g2/export_data_gob`. Obviamente el contenido de este archivo es el mismo que el que se puede encontrar en DockerHub.
+- Este es un archivo markdown con la información necesaria para poder completar la *distribución del servicio* que generamos en esta práctica a la vez que el apartado de *reproducibilidad*. Es decir, se aportará una descripción de su contenido con información de utilización de la imagen `ibd-g2/export_data_gob`. Obviamente el contenido de este archivo es el mismo que el que se puede encontrar en DockerHub.
 
 ## Descripción
 
-La imagen "ibd-g2/export_data_gob" es una imagen de Docker utilizada para desplegar un repositorio RDF con los datos Turtle de un conjunto de datos de incendios forestales disponibles en [datos.gob](https://datos.gob.es/es) importados en GraphDB. Esta imagen se basa en la última versión estable de la plataforma GraphDB proporcionada por Ontotext. La imagen es adecuada para su uso en entornos de producción y desarrollo.
+La imagen `ibd-g2/export_data_gob` es una imagen de Docker utilizada para desplegar un repositorio RDF con los datos Turtle (.ttl) de un conjunto de datos de incendios forestales, disponibles en [datos.gob](https://datos.gob.es/es) e importados en GraphDB. Esta imagen, se basa en la última versión de la plataforma GraphDB proporcionada por Ontotext.
 
 Esta imagen ha sido diseñada por: Noa Chu, Che Cui, Carlota Mendrano y Alejandro Pequeño para realizar la práctica 1 de la asignatura de Infraestructuras de Big Data del grado de Ciencia de datos e Inteligencia Artificial de la UPM. La imagen es configurable y personalizable, por lo que se puede adaptar a las necesidades del usuario, además es ideal para la importación de grandes conjuntos de datos RDF.
 
 ## README.md
 
-- Esta sección proporciona información sobre cómo utilizar la imagen "ibd-g2/export_data_gob" de Docker.
+- Esta sección proporciona información sobre cómo utilizar la imagen `ibd-g2/export_data_gob` de Docker.
 
 ### Requisitos previos
 
