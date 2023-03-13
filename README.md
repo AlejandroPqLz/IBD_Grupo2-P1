@@ -47,7 +47,7 @@ ibd_g2       latest    64920a562003   10 minutes ago   681MB
 
 ¡Perfecto! ya hemos creado una imagen Docker. Pero esto no es suficiente ahora tenemos que ejecutarla. Para ello, debemos crear un contenedor con el siguiente comando en tu terminal:
 
-`docker run -d -p 7200:7200 ibd_g2`
+`docker run -p 7200:7200 -d --name contenedor_rdf ibd_g2`
 
 Ejecutamos el contendor en modo "detached", en segundo plano, con `-d` y publicamos el puerto 7200 del contenedor en el host de Docker que será el mismo puerto que está escuchando nuestra imagen creada anteriormente (veasé en el archivo Dockerfile: `EXPOSE 7200`)
 
@@ -57,11 +57,14 @@ Gracias a la ejecución de la imagen y publicar los puertos ya podemos acceder a
 
 ### 5. Despliegue del repositorio RDF e importación de archivos
 
-Una vez accedido al servicio via web, procedemos a crear nuestro repositorio RDF. Para ello, 
+Una vez accedido al servicio via web, procedemos a crear nuestro repositorio RDF. Para ello, le damos a `create new repository` y posteriormente elegimos la opción `graphDB Reository`.
+`Import file`- `upload RDF files`. Fickertos `.ttl` menores a 200MB.
 
 ### 6. Creación de la imagen con el repositorio RDF
 
-Ya tenemos importados todos los arcihvos .ttl de data.gob desde el repositorio "data". Ahora, debemos de
+Ya tenemos importados todos los arcihvos .ttl de data.gob desde el repositorio "data". Ahora, debemos de crear una nueva imagen con el repositorio RDF creado. Para ello, ejecutamos el siguiente comando: 
+
+`docker commit <container_id or name> <new_image_name>`: docker commit contenedor_rdf ibd-g2/export_data_gob
 
 ### 7. Publicación de la imagen en DockerHub
 
