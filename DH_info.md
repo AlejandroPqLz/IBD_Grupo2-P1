@@ -20,19 +20,19 @@ Antes de utilizar esta imagen, asegúrese de que su sistema cumpla tenga Docker 
 
 Para utilizar esta imagen, siga los siguientes pasos:
 
-1. Descargue la imagen desde DockerHub ejecutando el siguiente comando: `docker pull ibd-g2/export_data_gob`
+**1.** Descargue la imagen desde DockerHub ejecutando el siguiente comando: `docker pull ibd-g2/export_data_gob`
 
-2. Cree un contenedor a partir de la imagen descargada: `docker run -p 7200:7200 -d --name rdf-repo_ibd-g2/export_data_gob`
+**2.** Cree un contenedor a partir de la imagen descargada: `docker run -p 7200:7200 -d --name rdf-repo_ibd-g2/export_data_gob`
 
 Este comando creará un contenedor de Docker, en segundo plano, con el nombre "rdf-repo" y expondrá el puerto 7200 en el host local.
 
-3. Acceda al repositorio RDF a través un navegador web: `http://localhost:7200`
+**3.** Acceda al repositorio RDF a través un navegador web: `http://localhost:7200`
 
 ### Configuración avanzada
 
 Para configurar esta imagen para sus necesidades específicas, puede seguir los siguientes pasos:
 
-1. Cree un archivo Dockerfile en el directorio deseado con el siguiente contenido:
+**1.** Cree un archivo Dockerfile en el directorio deseado con el siguiente contenido:
 
 ```
 FROM ibd-g2/export_data_gob
@@ -50,11 +50,11 @@ RUN <comandos de importación>
 EXPOSE 7200
 ```
 
-2. Construya la imagen a partir del archivo Dockerfile:
+**2.** Construya la imagen a partir del archivo Dockerfile:
 
 `docker build -t nuevo_graphdb .`
 
-3. Cree un contenedor a partir de la imagen construida:
+**3.** Cree un contenedor a partir de la imagen construida:
 
 `docker run -p 7200:7200 -d --name contendor_graphdb nuevo_graphdb`
 
