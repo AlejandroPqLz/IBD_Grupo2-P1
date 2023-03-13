@@ -12,6 +12,7 @@ Todos los archivos han sido creados y modificados por los miembros del **Grupo 2
 
 ## Objetivo:
 
+
 - Crear una imagen Docker, disponible en DockerHub, que despliegue un repositorio RDF con los datos importados desde ficheros Turtle extraídos de un conjunto de datos disponible en[datos.gob](https://datos.gob.es/es)
 ****
 
@@ -21,7 +22,7 @@ Todos los archivos han sido creados y modificados por los miembros del **Grupo 2
 
 1.1 Dirígete al buscador de Windows y teclea `cmd` o `powershell` para abrir la terminal de tu ordenador.
     
-**NOTA:** Si no tienes instalado Git en tu ordenador, puedes descargarlo desde [aquí](https://git-scm.com/downloads).
+**NOTA:** Si no tienes instalado Git en tu ordenador, puedes descargarlo desde [aquí](https://git-scm.com/downloads). También necesitarás Docker, que lo puedes descargarlo desde [aquí](https://www.docker.com/products/docker-desktop/).
 
 1.2 Una vez en la terminal, sitúate en la carpeta donde quieres clonar el repositorio y ejecuta el siguiente comando: `cd <path>`.
 
@@ -67,6 +68,7 @@ ff9750105774   ibd_g2    "/opt/graphdb/dist/b…"   7 seconds ago   Up 5 seconds
 Como podemos ver, el contenedor se ha creado correctamente y se está ejecutando en segundo plano (`Up 5 seconds`).
 
 
+
 ### 4. Acceso al Servicio Web Desplegado
 
 Una vez que hemos lanzado el contenedor a partir de la imagen creada, ya podemos acceder al servicio web a través de nuestro navegador. Para ello, simplemente abrimos una nueva pestaña en nuestro navegador y accedemos a la dirección local del puerto 7200: http://localhost:7200/.
@@ -76,11 +78,14 @@ De esta forma, podremos interactuar con el servicio virtual que hemos desplegado
 
 ### 5. Despliegue del repositorio RDF e importación de archivos
 
-Una vez accedido al servicio via web, procedemos a crear nuestro repositorio RDF. Para ello, 
+Una vez accedido al servicio via web, procedemos a crear nuestro repositorio RDF. Para ello, pulsamos en `setup` en la parte izquierda de la pantalla y le damos a `Repositories`. Una vez dentro, pinchamos `create new repository` y después `GraphDB Repository`, le asignamos un Repository ID y `Create`. 
+A continuación, accedes a tu repositorio y en `Import`-`Server files` deberían estar disponible los archivos ttl.
 
 ### 6. Creación de la imagen con el repositorio RDF
 
-Ya tenemos importados todos los arcihvos .ttl de data.gob desde el repositorio "data". Ahora, debemos de
+Ya tenemos importados todos los arcihvos .ttl de data.gob desde tu repositorio. Ahora, debemos de crear una nueva imagen con el repositorio RDF creado. Para ello, ejecutamos el siguiente comando: 
+
+`docker commit <container_id or name> <new_image_name>`: docker commit contenedor_rdf ibd-g2/export_data_gob
 
 ### 7. Publicación de la imagen en DockerHub
 
@@ -88,7 +93,11 @@ Ya tenemos importados todos los arcihvos .ttl de data.gob desde el repositorio "
 
 `docker push ibd-g2/export_data_gob`
 
-Al terminar la operación, ya podremos acceder a DockerHub y ver que la imagen se encuentra ahí. Pero la imagen se encuentra sin ningún tipo de información por lo que desde DockerHub puede añadirle una descripción y un README.md (README_DH.md del repositorio que incluye la descripción) a nivel de usuario para que cualquiera con un `docker pull ibd-g2/export_data_gob` pueda obtener tu imagen, ejecutarla y saber qué imagen es y qué puede hacer.
+Al terminar la operación, ya podremos acceder a DockerHub y ver que la imagen se encuentra ahí. Sin embargo, esto se queda un poco escueto pues la imagen subida, no tiene ningún tipo de descripción o información por lo que desde DockerHub añadiremos esta información para tener una distribución del servicio excelente; de modo que cualquiera `docker pull ibd-g2/export_data_gob` pueda obtener tu imagen, ejecutarla y saber qué imagen es y qué puede hacer.
+
+Finalmete hemos completado el objetivo de la práctica pues tenemos una imagen (`ibd-g2/export_data_gob`) Docker utilizada para desplegar un repositorio RDF con los datos Turtle (.ttl) de un conjunto de datos de incendios forestales, disponibles en [datos.gob](https://datos.gob.es/es) e importados en GraphDB. Esta imagen, se basa en la última versión de la plataforma GraphDB proporcionada por Ontotext.
+
+**NOTA**: La información a añadir como descripción en DockerHub se encuentra en el archivo *DH_info.md* del repositorio.
 
 ### 8. Explorar y probar su contenido
 
