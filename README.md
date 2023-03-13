@@ -69,7 +69,9 @@ Ya tenemos importados todos los arcihvos .ttl de data.gob desde el repositorio "
 
 `docker push ibd-g2/export_data_gob`
 
-Al terminar la operación, ya podremos acceder a DockerHub y ver que la imagen se encuentra ahí. Pero la imagen se encuentra sin ningún tipo de información por lo que desde DockerHub puede añadirle una descripción y un README.md (README_DH.md del repositorio que incluye la descripción) a nivel de usuario para que cualquiera con un `docker pull ibd-g2/export_data_gob` pueda obtener tu imagen, ejecutarla y saber qué imagen es y qué puede hacer.
+Al terminar la operación, ya podremos acceder a DockerHub y ver que la imagen se encuentra ahí. Sin embargo, esto se queda un poco escueto pues la imagen subida, no tiene ningún tipo de descripción o información por lo que desde DockerHub añadiremos esta información para tener una distribución del servicio excelente; de modo que cualquiera `docker pull ibd-g2/export_data_gob` pueda obtener tu imagen, ejecutarla y saber qué imagen es y qué puede hacer.
+
+**NOTA**: La información a añadir como descripción en DockerHub se encuentra en el archivo *DH_info.md* del repositorio.
 
 ### 8. Explorar y probar su contenido
 
