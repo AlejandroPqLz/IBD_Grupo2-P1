@@ -15,7 +15,7 @@
 
 1.1 Dirígete al buscador de Windows y teclea `cmd` o `powershell` para abrir la terminal de tu ordenador.
     
-**NOTA:** Si no tienes instalado Git en tu ordenador, puedes descargarlo desde [aquí](https://git-scm.com/downloads). También necesitarás Docker, que lo puedes descargarlo desde [aquí](https://www.docker.com/products/docker-desktop/)
+**NOTA:** Si no tienes instalado Git en tu ordenador, puedes descargarlo desde [aquí](https://git-scm.com/downloads). También necesitarás Docker, que lo puedes descargarlo desde [aquí](https://www.docker.com/products/docker-desktop/).
 
 1.2 Una vez en la terminal, sitúate en la carpeta donde quieres clonar el repositorio y ejecuta el siguiente comando: `cd <path>`.
 
@@ -58,7 +58,7 @@ Gracias a la ejecución de la imagen y publicar los puertos ya podemos acceder a
 ### 5. Despliegue del repositorio RDF e importación de archivos
 
 Una vez accedido al servicio via web, procedemos a crear nuestro repositorio RDF. Para ello, pulsamos en `setup` en la parte izquierda de la pantalla y le damos a `Repositories`. Una vez dentro, pinchamos `create new repository` y después `GraphDB Repository`, le asignamos un Repository ID y `Create`. 
-A continuación, accedes a tu repositorio y en `Import`-`Server files` deberían estar disponible ñlos archivos ttl.
+A continuación, accedes a tu repositorio y en `Import`-`Server files` deberían estar disponible los archivos ttl.
 
 ### 6. Creación de la imagen con el repositorio RDF
 
