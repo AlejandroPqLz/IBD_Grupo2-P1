@@ -15,11 +15,11 @@
 
 1.1 Dirígete al buscador de Windows y teclea `cmd` o `powershell` para abrir la terminal de tu ordenador.
     
-    **NOTA:** Si no tienes instalado Git en tu ordenador, puedes descargarlo desde [aquí](https://git-scm.com/downloads).
+**NOTA:** Si no tienes instalado Git en tu ordenador, puedes descargarlo desde [aquí](https://git-scm.com/downloads).
 
 1.2 Una vez en la terminal, sitúate en la carpeta donde quieres clonar el repositorio y ejecuta el siguiente comando: `cd <path>`.
-    
-    **NOTA:** Si su ruta tiene algún espacio o caracter especial, es necesario poner la ruta entre comillas dobles: `cd "<path>"`.
+
+**NOTA:** Si su ruta tiene algún espacio o caracter especial, es necesario poner la ruta entre comillas dobles: `cd "<path>"`.
 
 1.3 Una vez en la carpeta deseada, ejecuta el siguiente comando para clonar el repositorio:
 `git clone "https://github.com/AlejandroPqLz/IBD_Grupo2-P1.git"`
@@ -33,7 +33,7 @@ Mediante el clonado anterior, podrás encontrar todos los archivos necesarios pa
 
 Para la construcción de la imagen: `docker build -t <nombre> .` 
     
-    **NOTA**: Nosotros llamaremos a nuestra imagen: `ibd_g2`.
+**NOTA**: Nosotros llamaremos a nuestra imagen: `ibd_g2`.
 
 Perfecto! ya hemos creado una imagen Docker con los requisitos mencionados en el objetivo de la práctica. Puedes visualizarla ejecutando el siguiente comando en tu terminal: `docker images`: ->
 
