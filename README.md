@@ -31,7 +31,11 @@ Para la realización de la práctica serán necesarios los siguientes servicios:
 
 ***NOTA***: si se realiza desde MAC OS teclee `cmd`+`espace` para buscar y abrir la terminal de tu ordenador.
 
-![Barra de buscador en MAC OS para buscar el terminal](/images/search.png "Buscador MAC OS")
+![Barra de buscador en MAC OS para buscar el terminal|20](/images/search.png "Buscador MAC OS")
+![Barra de buscador en MAC OS para buscar el terminal|40](/images/search.png "Buscador MAC OS")
+![Barra de buscador en MAC OS para buscar el terminal|60](/images/search.png "Buscador MAC OS")
+![Barra de buscador en MAC OS para buscar el terminal|80](/images/search.png "Buscador MAC OS")
+![Barra de buscador en MAC OS para buscar el terminal|100](/images/search.png "Buscador MAC OS")
 ![Buscar la terminal en MAC OS](/images/terminal.png "Terminal MAC OS")
 
 **1.2** Una vez en la terminal, sitúate en la carpeta donde quieres clonar el repositorio, puedes hacerlo usando el siguiente comando: `cd <path>`.
