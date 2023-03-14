@@ -5,7 +5,7 @@ En el siguiente repositorio, encontrarás todos los archivos necesarios para rea
 - [Dockerfile](Dockerfile): instrucciones necesarias para crear la imagen Docker que contendrá el servicio virtual que se desplegará en el contenedor.
 - [LICENSE](LICENSE.md): licencia de uso de los archivos del repositorio.
 - [README](README.md): descripción de la práctica y los pasos a seguir para realizarla con éxito.
-- [Repository.md](Repository.md): link del repositorio.
+- [Repository](Repository.md): link del repositorio.
 - [MAC_guide](MAC_guide.md): guía para clonar repositorios GIT desde el sistema operativo MAC OS.
 - [DH_info](DH_info): archivo con la descripción y el README a nvl de usuario para la imagen de DockerHub.
 
