@@ -14,13 +14,13 @@ Todos los archivos han sido creados y modificados por los miembros del **Grupo 2
 
 ## Objetivo
 
-- Crear una imagen Docker, disponible en DockerHub, que despliegue un repositorio RDF con datos Turtle (.ttl) extraídos de datos.gob. Nosotros lo haremos con el conjunto de datos sobre incendios forestales pero puede elegir otros. Para más información sobre otros datasets puede consultar: [datos.gob](https://datos.gob.es/es)
+- Crear una imagen Docker, disponible en DockerHub, que despliegue un repositorio RDF con datos Turtle (.ttl) extraídos de datos.gob. Nosotros lo haremos con el conjunto de datos sobre incendios forestales, pero puede elegir otros. Para más información sobre otros datasets puede consultar: [datos.gob](https://datos.gob.es/es)
 
 ## Requisitos
 
 Para la realización de la práctica serán necesarios los siguientes servicios:
 
-- Tener instalado **GIT** en su máquina. Si no, puedes descargarlo desde  [aquí](https://git-scm.com/downloads).
+- Tener instalado **GIT** en su máquina. Si no, puedes descargarlo desde [aquí](https://git-scm.com/downloads).
 - Tener instalado **Docker** en su máquina. Si no, puedes descargarlo desde [aquí](https://www.docker.com/products/docker-desktop/).
 
 ## Pasos
@@ -56,11 +56,11 @@ ibd_g2       latest    64920a562003   10 minutes ago   681MB
 
 ### 3.Ejecución de la imagen (contenedor)
 
-¡Perfecto!, ya hemos creado una imagen Docker. Pero esto no es suficiente ahora tenemos que ejecutarla. Para ello, debemos crear un contenedor con el siguiente comando en tu terminal:
+¡Perfecto!, ya hemos creado una imagen Docker. Pero esto no es suficiente, ahora tenemos que ejecutarla. Para ello, debemos crear un contenedor con el siguiente comando en tu terminal:
 
 `docker run -p 7200:7200 -d --name contenedor_rdf ibd_g2`
 
-Ejecutamos el contendor en modo "detached", en segundo plano, con `-d` y publicamos el puerto 7200 del contenedor en el host de Docker que será el mismo puerto que está escuchando nuestra imagen creada anteriormente (veasé en el archivo Dockerfile: `EXPOSE 7200`)
+Ejecutamos el contendor en modo "detached", en segundo plano, con `-d` y publicamos el puerto 7200 del contenedor en el host de Docker, que será el mismo puerto que está escuchando nuestra imagen creada anteriormente (veasé en el archivo Dockerfile: `EXPOSE 7200`)
 
 ### 4. Acceso web al servicio levantado
 
@@ -79,13 +79,13 @@ Ya tenemos importados todos los arcihvos Tutle (.ttl) de data.gob desde tu repos
 
 ### 7. Publicación de la imagen en DockerHub
 
-¡Ya queda poco!, tenemos la imagen Docker con todos los requisitos mencionados en el objetivo, pero ahora tenemos que hacer que este disponible en DockerHub. Este paso es muy sencillo y basta con escribir el siguiente comando:
+¡Ya queda poco!, tenemos la imagen Docker con todos los requisitos mencionados en el objetivo, pero ahora tenemos que hacer que esté disponible en DockerHub. Este paso es muy sencillo y basta con escribir el siguiente comando:
 
 `docker push ibd-g2/export_data_gob`
 
-Al terminar la operación, ya podremos acceder a DockerHub y ver que la imagen se encuentra ahí. Sin embargo, esto se queda un poco escueto pues la imagen subida, no tiene ningún tipo de descripción o información por lo que desde DockerHub añadiremos esta información para tener una distribución del servicio excelente; de modo que cualquiera `docker pull ibd-g2/export_data_gob` pueda obtener tu imagen, ejecutarla y saber qué imagen es y qué puede hacer.
+Al terminar la operación, ya podremos acceder a DockerHub y ver que la imagen se encuentra ahí. Sin embargo, esto se queda un poco escueto, pues, la imagen subida, no tiene ningún tipo de descripción o información, por lo que desde DockerHub añadiremos esta información para tener una distribución del servicio excelente; de modo que cualquiera `docker pull ibd-g2/export_data_gob` pueda obtener tu imagen, ejecutarla y saber qué imagen es y qué puede hacer.
 
-Finalmete hemos completado el objetivo de la práctica pues tenemos una imagen (`ibd-g2/export_data_gob`) Docker utilizada para desplegar un repositorio RDF con los datos Turtle (.ttl) de un conjunto de datos de incendios forestales, disponibles en [datos.gob](https://datos.gob.es/es) e importados en GraphDB. Esta imagen, se basa en la última versión de la plataforma GraphDB proporcionada por Ontotext.
+Finalmete hemos completado el objetivo de la práctica, pues tenemos una imagen (`ibd-g2/export_data_gob`) Docker utilizada para desplegar un repositorio RDF con los datos Turtle (.ttl) de un conjunto de datos de incendios forestales, disponibles en [datos.gob](https://datos.gob.es/es) e importados en GraphDB. Esta imagen se basa en la última versión de la plataforma GraphDB proporcionada por Ontotext.
 
 **NOTA**: La información a añadir como descripción en DockerHub se encuentra en el archivo *DH_info.md* del repositorio.
 
