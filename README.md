@@ -72,20 +72,20 @@ De esta forma, podremos interactuar con el servicio virtual que hemos desplegado
 
 Una vez dentro de tu repositorio, selecciona la pestaña `Server files`. Si todo se ha realizado correctamente, ahí deberían estar todos los archivos .ttl de data.gob.es.
 
-5.1 Nos dirijimos al panel izquierdo de la pantalla y seleccionamos `setup` y posteriormente `Repositories`. 
+**5.1** Nos dirijimos al panel izquierdo de la pantalla y seleccionamos `setup` y posteriormente `Repositories`. 
 
-5.2 Una vez dentro, pulsamos en `create new repository` y después `GraphDB Repository`. Se nos reedigirá a una nueva pantalla donde deberemos de rellenar los siguientes campos:
+**5.2** Una vez dentro, pulsamos en `create new repository` y después `GraphDB Repository`. Se nos reedigirá a una nueva pantalla donde deberemos de rellenar los siguientes campos:
 
 - `Repository ID`: data
 - Los demás campos los dejamos como están por defecto.
 
 ¡Ya hemos creado nuestro repositorio RDF! En este repositorio ya están todos los archivos `.ttl` importados. 
 
-5.3 Para poderlos visualizar, nos dirigimos nuevamente al panel izquierdo y seleccionamos `import`.
+**5.3** Para poderlos visualizar, nos dirigimos nuevamente al panel izquierdo y seleccionamos `import`.
 
 **NOTA:** Es posible que deba de seleccionar el repositorio `data` para poder visualizar los archivos. Para ello, en la parte superior derecha, despliegue los repositorios disponibles y seleccione `data`.
 
-5.4 Una vez dentro de tu repositorio, selecciona la pestaña `Server files`. Si todo se ha realizado correctamente, ahí deberían estar todos los archivos `.ttl` de [datos.gob-incendios_forestales](https://datos.gob.es/es/catalogo/e05068001-estadistica-general-de-incendios-forestales).
+**5.4** Una vez dentro de tu repositorio, selecciona la pestaña `Server files`. Si todo se ha realizado correctamente, ahí deberían estar todos los archivos `.ttl` de [datos.gob-incendios_forestales](https://datos.gob.es/es/catalogo/e05068001-estadistica-general-de-incendios-forestales).
 
 
 
