@@ -70,15 +70,24 @@ De esta forma, podremos interactuar con el servicio virtual que hemos desplegado
 
 ### 5. Despliegue del repositorio RDF e importación de archivos
 
-Una vez accedido al servicio vía web, procedemos a crear nuestro repositorio RDF. Para ello, pulsamos en `setup` en la parte izquierda de la pantalla y le damos a `Repositories`. Una vez dentro, pinchamos `create new repository` y después `GraphDB Repository`, le asignamos un Repository ID y `Create`. 
-A continuación, accedes a tu repositorio y en `Import`-`Server files` deberían estar disponible los archivos ttl.
-Una vez en servicio web, podremos acceder a la interfaz de GraphDB. Para crear nuestro repositorio **RDF** nos dirigimos al panel izquierdo de la pantalla y pulsamos en `setup`. Una vez dentro, pulsamos en `Repositories` y después en `create new repository`. Ahora, seleccionamos `GraphDB Repository` y al campo de `Repository ID` le asignamos el siguiente nombre `data`. Dejamos todos los demás campos como están por defecto y pulsamos en `Create`.
+Una vez dentro de tu repositorio, selecciona la pestaña `Server files`. Si todo se ha realizado correctamente, ahí deberían estar todos los archivos .ttl de data.gob.es.
 
-¡Ya hemos creado nuestro repositorio RDF! En este repositorio ya están todos los archivos .ttl importados. Para poderlos visualizar, nos dirigimos nuevamente al panel izquierdo y seleccionamos `import`.
+5.1 Nos dirijimos al panel izquierdo de la pantalla y seleccionamos `setup` y posteriormente `Repositories`. 
+
+5.2 Una vez dentro, pulsamos en `create new repository` y después `GraphDB Repository`. Se nos reedigirá a una nueva pantalla donde deberemos de rellenar los siguientes campos:
+
+- `Repository ID`: data
+- Los demás campos los dejamos como están por defecto.
+
+¡Ya hemos creado nuestro repositorio RDF! En este repositorio ya están todos los archivos `.ttl` importados. 
+
+5.3 Para poderlos visualizar, nos dirigimos nuevamente al panel izquierdo y seleccionamos `import`.
 
 **NOTA:** Es posible que deba de seleccionar el repositorio `data` para poder visualizar los archivos. Para ello, en la parte superior derecha, despliegue los repositorios disponibles y seleccione `data`.
 
-Una vez dentro de tu repositorio, selecciona la pestaña `Server files`. Si todo se ha realizado correctamente, ahí deberían estar todos los archivos .ttl de data.gob.es.
+5.4 Una vez dentro de tu repositorio, selecciona la pestaña `Server files`. Si todo se ha realizado correctamente, ahí deberían estar todos los archivos `.ttl` de [datos.gob-incendios_forestales](https://datos.gob.es/es/catalogo/e05068001-estadistica-general-de-incendios-forestales).
+
+
 
 ### 6. Creación de la imagen con el repositorio RDF
 
