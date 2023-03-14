@@ -80,7 +80,7 @@ Una vez dentro de tu repositorio, selecciona la pestaña `Server files`. Si todo
 
 **5.2** Una vez dentro, pulsamos en `create new repository` y después `GraphDB Repository`. Se nos reedigirá a una nueva pantalla donde deberemos de rellenar los siguientes campos:
 
-- `Repository ID`: data
+- `Repository ID`: `data`
 - Los demás campos los dejamos como están por defecto.
 
 ¡Ya hemos creado nuestro repositorio RDF! En este repositorio ya están todos los archivos `.ttl` importados. 
@@ -97,32 +97,66 @@ Una vez dentro de tu repositorio, selecciona la pestaña `Server files`. Si todo
 
 Ya hemos comprobado que el servicio web funciona correctamente y que tenemos todos los archivos `.ttl` importados correctamente en nuestro repositorio RDF llamado `data`. A continuación, lo que nos queda por hacer es guardar el estado actual del contenedor Docker, es decir, guardar la imagen Docker con el repositorio RDF creado. Para ello, debemos de crear una nueva imagen Docker a partir del contenedor que tenemos actualmente: `docker commit <container_name> <new_image>:<tag>`
 
-***NOTA***: Utilizaremos la versión de nuestro último *release* de GitHub, que en este caso es la `v1.4`: `docker commit graphdb ibd-g2/export_data_gob:v1.4`
+***NOTA***: Utilizaremos la versión de nuestro último *release* de GitHub, que en este caso es la `v1.4`: `docker commit graphdb ibd_g2/export_data_gob:v1.4`
 
-En el comando anterior, estamos creando una nueva imagen Docker a partir del contenedor `graphdb` a la que llamaremos `ibd-g2/export_data_gob` y le asignamos la versión `v1.4`.
+En el comando anterior, estamos creando una nueva imagen Docker a partir del contenedor `graphdb` a la que llamaremos `ibd_g2/export_data_gob` y le asignamos la versión `v1.4`.
 Ejecutando el siguiente comando, debería de ver algo parecido a esto: `docker images`
 
 ```
 REPOSITORY               TAG       IMAGE ID       CREATED          SIZE
-ibd-g2/export_data_gob   v1.4      15439fac5958   19 minutes ago   1.73GB
+ibd_g2/export_data_gob   v1.4      15439fac5958   19 minutes ago   1.73GB
 ibd_g2                   latest    87f8be82a675   19 hours ago     1.67GB
 ```
 
-Como podemos observar, hemos creado una nueva imagen Docker a partir del contenedor `graphdb` que se llama `ibd-g2/export_data_gob` y que tiene la versión `v1.4`. Esta imagen Docker contiene el repositorio RDF creado y todos los archivos `.ttl` importados, por tanto, deberíamos de poder ver que la nueva imagen tiene un tamaño mayor que la imagen original.
+Como podemos observar, hemos creado una nueva imagen Docker a partir del contenedor `graphdb` que se llama `ibd_g2/export_data_gob` y que tiene la versión `v1.4`. Esta imagen Docker contiene el repositorio RDF creado y todos los archivos `.ttl` importados, por tanto, deberíamos de poder ver que la nueva imagen tiene un tamaño mayor que la imagen original.
 
 
 ### 7. Publicación de la imagen en DockerHub
 
-¡Ya queda poco!, tenemos la imagen Docker con todos los requisitos mencionados en el objetivo, pero ahora tenemos que hacer que esté disponible en DockerHub. Este paso es muy sencillo y basta con escribir el siguiente comando:
+¡Ya queda menos! Ahora que tenemos una imagen Docker con todos los requisitos necesarios, necesitamos hacerla accesible al público en general. Para hacer esto, utilizaremos  [DockerHub](https://hub.docker.com/), un servicio de almacenamiento de imágenes Docker gratuito y público.
 
-`docker push ibd-g2/export_data_gob`
+***NOTA***: Antes de subir la imagen a DockerHub, es necesario tener una cuenta en DockerHub.  Si no la tienes, puedes registrarte [aquí](https://hub.docker.com/signup).
 
-Al terminar la operación, ya podremos acceder a DockerHub y ver que la imagen se encuentra ahí. Sin embargo, esto se queda un poco escueto, pues, la imagen subida, no tiene ningún tipo de descripción o información, por lo que desde DockerHub añadiremos esta información para tener una distribución del servicio excelente; de modo que cualquiera `docker pull ibd-g2/export_data_gob` pueda obtener tu imagen, ejecutarla y saber qué imagen es y qué puede hacer.
+7.1 Una vez registrado en tu cuenta, dirígite al panel superior y selecciones `Repositories`.
 
-Finalmete hemos completado el objetivo de la práctica, pues tenemos una imagen (`ibd-g2/export_data_gob`) Docker utilizada para desplegar un repositorio RDF con los datos Turtle (.ttl) de un conjunto de datos de incendios forestales, disponibles en [datos.gob](https://datos.gob.es/es) e importados en GraphDB. Esta imagen se basa en la última versión de la plataforma GraphDB proporcionada por Ontotext.
+7.2 Una vez dentro, selecciona `Create Repository`. Se nos reedigirá a una nueva pantalla donde deberemos de rellenar los siguientes campos:
+
+- Dejamos el usuario por defecto.
+- `Name`: `ibd_g2/export_data_gob` 
+- `Description`: Repositorio RDF con los datos de data.gob.es
+- `Visibility`: Dejamos la opción `Public` por defecto.
+
+7.3 Una vez que se haya creado el repositorio, regrese a la terminal. Antes de subir la imagen, inicie sesión en Dockerhub desde la terminal con el siguiente comando: `docker login -u <username>`
+
+7.4 Después de iniciar sesión, etiquete su imagen con su nombre de usuario de DockerHub. Si no etiqueta su imagen, Docker no sabrá a qué repositorio de DockerHub subir su imagen:  `docker tag ibd_g2/export_data_gob:v1.4 <username>/ibd_g2/export_data_gob:v1.4 `
+
+***NOTA***: `<username>` es su nombre de usuario elegido al registrarse en DockerHub.
+
+7.5 Una vez etiquetada, ya podemos subir la imagen a DockerHub: `docker push <username>/ibd_g2/export_data_gob:v1.4`
+
+7.6 Para comprobar que la imagen se ha publicado correctamente, inicie sesión en DockerHub y seleccione el repositorio que ha creado. Debería ver algo similar a esto:
+
+<!IMG>
+
+7.7 Otra forma de comprobar que la imagen se ha publicado correctamente es:
+- OPCIÓN 1: Pedirle a un compañero que ejecute el siguiente comando: `docker pull <username>/ibd_g2/export_data_gob:v1.4`
+
+- OPCIÓN 2: Dirigirse a [Play with Docker](https://labs.play-with-docker.com/), darle a `Login` y posteriormente a `docker` y finalmente a `Start`. Una vez dentro, en el panel izquierdo dale a `+ ADD NEW INSTANCE`. Se le abrirá una terminal nueva, en la que deberás de ejecutar el siguiente comando: `docker pull <username>/ibd_g2/export_data_gob:v1.4`
+
+Si todo ha ido bien, la imagen debería de descargarse correctamente.
+
+Finalmete hemos completado el objetivo de la práctica, pues tenemos una imagen (`ibd_g2/export_data_gob`) Docker utilizada para desplegar un repositorio RDF con los datos Turtle (.ttl) de un conjunto de datos de incendios forestales, disponibles en [datos.gob](https://datos.gob.es/es) e importados en GraphDB. Esta imagen se basa en la última versión de la plataforma GraphDB proporcionada por Ontotext.
 
 ***NOTA***: La información a añadir como descripción en DockerHub se encuentra en el archivo *DH_info.md* del repositorio.
 
 ### 8. Explorar y probar su contenido
 
-Para comprobar el correcto funcionamiento de nuestra aplicación bastará con realizar con éxito una consulta SPARQL. Para ello, en nustro servicio levantado de RDF, nos dirigimos al aprtado de SPARQL que aparecerá en el panel izquierdo, donde podremos probar las queries que deseemos. Por ejemplo:
+Ahora que ha publicado su imagen, puede explorar y probar su contenido realizando una consulta **SPARQL** en su servicio RDF levantado (https://localhost:7200/). En el panel izquierdo, dirígase a `SPARQL` y escriba la siguiente consulta:
+
+```
+!query
+```
+
+***NOTA***: En caso de que no se levante el servicio, compruebe que el contenedor está corriendo con el comando `docker ps`. 
+- Si en la lista no aparece el contenedor, para listar todos los contenedores creados, ejecute el comando `docker ps -a`. 
+- Si el contenedor está parado, inícielo con el comando `docker start <container_name>`.
