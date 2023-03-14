@@ -87,7 +87,7 @@ Una vez dentro de tu repositorio, selecciona la pestaña `Server files`. Si todo
 
 **5.3** Para poderlos visualizar, nos dirigimos nuevamente al panel izquierdo y seleccionamos `import`.
 
-**NOTA:** Es posible que deba de seleccionar el repositorio `data` para poder visualizar los archivos. Para ello, en la parte superior derecha, despliegue los repositorios disponibles y seleccione `data`.
+***NOTA***: Es posible que deba de seleccionar el repositorio `data` para poder visualizar los archivos. Para ello, en la parte superior derecha, despliegue los repositorios disponibles y seleccione `data`.
 
 **5.4** Una vez dentro de tu repositorio, selecciona la pestaña `Server files`. Si todo se ha realizado correctamente, ahí deberían estar todos los archivos `.ttl` de [datos.gob-incendios_forestales](https://datos.gob.es/es/catalogo/e05068001-estadistica-general-de-incendios-forestales).
 
@@ -100,6 +100,15 @@ Ya hemos comprobado que el servicio web funciona correctamente y que tenemos tod
 ***NOTA***: Utilizaremos la versión de nuestro último *release* de GitHub, que en este caso es la `v1.4`: `docker commit graphdb ibd-g2/export_data_gob:v1.4`
 
 En el comando anterior, estamos creando una nueva imagen Docker a partir del contenedor `graphdb` a la que llamaremos `ibd-g2/export_data_gob` y le asignamos la versión `v1.4`.
+Ejecutando el siguiente comando, debería de ver algo parecido a esto: `docker images`
+
+```
+REPOSITORY               TAG       IMAGE ID       CREATED          SIZE
+ibd-g2/export_data_gob   v1.4      15439fac5958   19 minutes ago   1.73GB
+ibd_g2                   latest    87f8be82a675   19 hours ago     1.67GB
+```
+
+Como podemos observar, hemos creado una nueva imagen Docker a partir del contenedor `graphdb` que se llama `ibd-g2/export_data_gob` y que tiene la versión `v1.4`. Esta imagen Docker contiene el repositorio RDF creado y todos los archivos `.ttl` importados, por tanto, deberíamos de poder ver que la nueva imagen tiene un tamaño mayor que la imagen original.
 
 
 ### 7. Publicación de la imagen en DockerHub
@@ -112,7 +121,7 @@ Al terminar la operación, ya podremos acceder a DockerHub y ver que la imagen s
 
 Finalmete hemos completado el objetivo de la práctica, pues tenemos una imagen (`ibd-g2/export_data_gob`) Docker utilizada para desplegar un repositorio RDF con los datos Turtle (.ttl) de un conjunto de datos de incendios forestales, disponibles en [datos.gob](https://datos.gob.es/es) e importados en GraphDB. Esta imagen se basa en la última versión de la plataforma GraphDB proporcionada por Ontotext.
 
-**NOTA:** La información a añadir como descripción en DockerHub se encuentra en el archivo *DH_info.md* del repositorio.
+***NOTA***: La información a añadir como descripción en DockerHub se encuentra en el archivo *DH_info.md* del repositorio.
 
 ### 8. Explorar y probar su contenido
 
