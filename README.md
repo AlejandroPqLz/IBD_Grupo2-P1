@@ -28,14 +28,17 @@ Para la realización de la práctica serán necesarios los siguientes servicios:
 ### 1. Clonado del repositorio de GitHub
 
 **1.1** Dirígete al buscador de Windows y busca `cmd` o `powershell` para abrir la terminal de tu ordenador.
-NOTA: si se realiza desde MAC OS teclee `cmd`+`alt` para buscar y abrir la terminal de tu ordenador.
+
+***NOTA***: si se realiza desde MAC OS teclee `cmd`+`alt` para buscar y abrir la terminal de tu ordenador.
 
 **1.2** Una vez en la terminal, sitúate en la carpeta donde quieres clonar el repositorio, puedes hacerlo usando el siguiente comando: `cd <path>`.
 
-**NOTA:** Si su ruta tiene algún espacio o carácter especial, es necesario poner la ruta entre comillas dobles: `cd "<path>"`.
+***NOTA***: Si su ruta tiene algún espacio o carácter especial, es necesario poner la ruta entre comillas dobles: `cd "<path>"`.
 
 **1.3** Una vez en la carpeta deseada, ejecuta el siguiente comando para clonar el repositorio:
 `git clone "https://github.com/AlejandroPqLz/IBD_Grupo2-P1.git"`
+
+**1.4** Una vez clonado el repositorio, accede a la carpeta que se ha creado: `cd IBD_Grupo2-P1`.
 
 En el paso anterior, se ha proporcionado el HTTPS del repositorio de GitHub. Este link lo puedes encontrar en la página principal del [repositorio](https://github.com/AlejandroPqLz/IBD_Grupo2-P1), en la parte superior derecha, pulsando en el botón verde "Code". En la ventana que se abre, selecciona la opción "HTTPS" y copia el link. También puedes obtenerlo en el archivo [Repository.md](Repository.md) del repositorio de GitHub.
 
@@ -45,7 +48,7 @@ Mediante el clonado anterior, podrás encontrar todos los archivos necesarios pa
 
 Para la construcción de la imagen: `docker build -t <nombre> .`
 
-**NOTA:** Nosotros llamaremos a nuestra imagen: `ibd_g2`.
+***NOTA***: Nosotros llamaremos a nuestra imagen: `ibd_g2`.
 
 Perfecto!, ya hemos creado una imagen Docker con los requisitos mencionados en el objetivo de la práctica. Puedes visualizarla ejecutando el siguiente comando en tu terminal: `docker images`
 
@@ -92,9 +95,12 @@ Una vez dentro de tu repositorio, selecciona la pestaña `Server files`. Si todo
 
 ### 6. Creación de la imagen con el repositorio RDF
 
-Ya tenemos importados todos los arcihvos Tutle (.ttl) de data.gob desde tu repositorio. Ahora, debemos de crear una nueva imagen con el repositorio RDF creado. Para ello, ejecutamos el siguiente comando:
+Ya hemos comprobado que el servicio web funciona correctamente y que tenemos todos los archivos `.ttl` importados correctamente en nuestro repositorio RDF llamado `data`. A continuación, lo que nos queda por hacer es guardar el estado actual del contenedor Docker, es decir, guardar la imagen Docker con el repositorio RDF creado. Para ello, debemos de crear una nueva imagen Docker a partir del contenedor que tenemos actualmente: `docker commit <container_name> <new_image>:<tag>`
 
-`docker commit <container_id or name> <new_image_name>:<version>`. En nuestro caso: `docker commit contenedor_rdf ibd-g2/export_data_gob:latest`
+***NOTA***: Utilizaremos la versión de nuestro último *release* de GitHub, que en este caso es la `v1.4`: `docker commit graphdb ibd-g2/export_data_gob:v1.4`
+
+En el comando anterior, estamos creando una nueva imagen Docker a partir del contenedor `graphdb` a la que llamaremos `ibd-g2/export_data_gob` y le asignamos la versión `v1.4`.
+
 
 ### 7. Publicación de la imagen en DockerHub
 
