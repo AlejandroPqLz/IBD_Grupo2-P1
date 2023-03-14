@@ -1,11 +1,11 @@
 # IBD-P1-Grupo2
 
-- En el siguiente repositorio, encontrarás todos los archivos necesarios para realizar la ***Práctica 1 de la asignatura de Infraestructura para Big Data***. Entre los archivos anteriormente mencionados están:
+En el siguiente repositorio, encontrarás todos los archivos necesarios para realizar la ***Práctica 1 de la asignatura de Infraestructura para Big Data***. Entre los archivos anteriormente mencionados están:
 
-    - [Dockerfile](Dockerfile): instrucciones necesarias para crear la imagen Docker que contendrá el servicio virtual que se desplegará en el contenedor.
-    - [License](License.md): licencia de uso de los archivos del repositorio.
-    - [README](README.md): descripción de la práctica y los pasos a seguir para realizarla con éxito.
-    - [MAC_guide](MAC_guide.ipynb): guía para clonar repositorios GIT desde el sistema operativo MAC OS.
+- [Dockerfile](Dockerfile): instrucciones necesarias para crear la imagen Docker que contendrá el servicio virtual que se desplegará en el contenedor.
+- [License](License.md): licencia de uso de los archivos del repositorio.
+- [README](README.md): descripción de la práctica y los pasos a seguir para realizarla con éxito.
+- [MAC_guide](MAC_guide.ipynb): guía para clonar repositorios GIT desde el sistema operativo MAC OS.
 
 Todos los archivos han sido creados y modificados por los miembros del **Grupo 2** de la asignatura de IBD de ***Ciencia de Datos e Inteligencia Artificial de la Universidad Politécnica de Madrid*** (*UPM*): Noa Chu, Che Cui, Carlota Medrano, Alejandro Pequeño
 ****
@@ -13,7 +13,7 @@ Todos los archivos han sido creados y modificados por los miembros del **Grupo 2
 ## Objetivo:
 
 
-- Crear una imagen Docker, disponible en DockerHub, que despliegue un repositorio RDF con los datos importados desde ficheros Turtle extraídos de un conjunto de datos disponible en [datos.gob](https://datos.gob.es/es)
+Crear una imagen Docker, disponible en DockerHub, que despliegue un repositorio RDF con los datos importados desde ficheros Turtle extraídos de un conjunto de datos disponible en [datos.gob](https://datos.gob.es/es)
 ****
 
 ## Pasos:
@@ -78,8 +78,14 @@ De esta forma, podremos interactuar con el servicio virtual que hemos desplegado
 
 ### 5. Despliegue del repositorio RDF e importación de archivos
 
-Una vez accedido al servicio via web, procedemos a crear nuestro repositorio RDF. Para ello, pulsamos en `setup` en la parte izquierda de la pantalla y le damos a `Repositories`. Una vez dentro, pinchamos `create new repository` y después `GraphDB Repository`, le asignamos un Repository ID y `Create`. 
-A continuación, accedes a tu repositorio y en `Import`-`Server files` deberían estar disponible los archivos ttl.
+Una vez en servicio web, podremos acceder a la interfaz de GraphDB. Para crear nuestro repositorio **RDF** nos dirijimos al panel izquierdo de la pantalla y pulsamos en `setup`. Una vez dentro, pulsamos en `Repositories` y después en `create new repository`. Ahora, seleccionamos `GraphDB Repository` y al campo de `Repository ID` le asignamos el siguiente nombre `data`. Dejamos todos los demás campos como están por defecto y pulsamos en `Create`.
+
+¡Ya hemos creado nuestro repositorio RDF! En este repositorio ya están todos los archivos .ttl de [] importados. Para poderlos visualizar, nos dirijimos nuevamente al panel izquierdo y seleccionamos `import`. 
+
+**NOTA***: Es posible que deba de seleccionar el repositorio `data` para poder visualizar los archivos. Para ello, en la parte superior derecha, despliegue los repositorios disponibles y seleccione `data`.
+
+Una vez dentro de tu repositorio, selecciona la pestaña `Server files`. Si todo se ha realizado correctamente, ahí deberían estar todos los archivos .ttl de data.gob.es.
+
 
 ### 6. Creación de la imagen con el repositorio RDF
 
