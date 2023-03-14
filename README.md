@@ -46,7 +46,7 @@ Para la construcción de la imagen: `docker build -t <nombre> .`
 
 **NOTA:** Nosotros llamaremos a nuestra imagen: `ibd_g2`.
 
-Perfecto! ya hemos creado una imagen Docker con los requisitos mencionados en el objetivo de la práctica. Puedes visualizarla ejecutando el siguiente comando en tu terminal: `docker images`
+Perfecto!, ya hemos creado una imagen Docker con los requisitos mencionados en el objetivo de la práctica. Puedes visualizarla ejecutando el siguiente comando en tu terminal: `docker images`
 
 ```
 REPOSITORY   TAG       IMAGE ID       CREATED          SIZE
@@ -54,13 +54,13 @@ ibd_g2       latest    64920a562003   10 minutes ago   681MB
 ...          ...       ...            ...              ...
 ```
 
-### 3.Ejecución de la imagen (contenedor)
+### 3. Ejecución de la imagen (contenedor)
 
 ¡Perfecto!, ya hemos creado una imagen Docker. Pero esto no es suficiente, ahora tenemos que ejecutarla. Para ello, debemos crear un contenedor con el siguiente comando en tu terminal:
 
 `docker run -p 7200:7200 -d --name contenedor_rdf ibd_g2`
 
-Ejecutamos el contendor en modo "detached", en segundo plano, con `-d` y publicamos el puerto 7200 del contenedor en el host de Docker, que será el mismo puerto que está escuchando nuestra imagen creada anteriormente (veasé en el archivo Dockerfile: `EXPOSE 7200`)
+Ejecutamos el contendor en modo "detached", en segundo plano, con `-d` y publicamos el puerto 7200 del contenedor en el host de Docker, que será el mismo puerto que está escuchando nuestra imagen creada anteriormente (véase en el archivo Dockerfile: `EXPOSE 7200`).
 
 ### 4. Acceso web al servicio levantado
 
@@ -70,11 +70,11 @@ De esta forma, podremos interactuar con el servicio virtual que hemos desplegado
 
 ### 5. Despliegue del repositorio RDF e importación de archivos
 
-Una vez accedido al servicio via web, procedemos a crear nuestro repositorio RDF. Para ello, pulsamos en `setup` en la parte izquierda de la pantalla y le damos a `Repositories`. Una vez dentro, pinchamos `create new repository` y después `GraphDB Repository`, le asignamos un Repository ID y `Create`. 
+Una vez accedido al servicio vía web, procedemos a crear nuestro repositorio RDF. Para ello, pulsamos en `setup` en la parte izquierda de la pantalla y le damos a `Repositories`. Una vez dentro, pinchamos `create new repository` y después `GraphDB Repository`, le asignamos un Repository ID y `Create`. 
 A continuación, accedes a tu repositorio y en `Import`-`Server files` deberían estar disponible los archivos ttl.
-Una vez en servicio web, podremos acceder a la interfaz de GraphDB. Para crear nuestro repositorio **RDF** nos dirijimos al panel izquierdo de la pantalla y pulsamos en `setup`. Una vez dentro, pulsamos en `Repositories` y después en `create new repository`. Ahora, seleccionamos `GraphDB Repository` y al campo de `Repository ID` le asignamos el siguiente nombre `data`. Dejamos todos los demás campos como están por defecto y pulsamos en `Create`.
+Una vez en servicio web, podremos acceder a la interfaz de GraphDB. Para crear nuestro repositorio **RDF** nos dirigimos al panel izquierdo de la pantalla y pulsamos en `setup`. Una vez dentro, pulsamos en `Repositories` y después en `create new repository`. Ahora, seleccionamos `GraphDB Repository` y al campo de `Repository ID` le asignamos el siguiente nombre `data`. Dejamos todos los demás campos como están por defecto y pulsamos en `Create`.
 
-¡Ya hemos creado nuestro repositorio RDF! En este repositorio ya están todos los archivos .ttl importados. Para poderlos visualizar, nos dirijimos nuevamente al panel izquierdo y seleccionamos `import`.
+¡Ya hemos creado nuestro repositorio RDF! En este repositorio ya están todos los archivos .ttl importados. Para poderlos visualizar, nos dirigimos nuevamente al panel izquierdo y seleccionamos `import`.
 
 **NOTA:** Es posible que deba de seleccionar el repositorio `data` para poder visualizar los archivos. Para ello, en la parte superior derecha, despliegue los repositorios disponibles y seleccione `data`.
 
@@ -84,7 +84,7 @@ Una vez dentro de tu repositorio, selecciona la pestaña `Server files`. Si todo
 
 Ya tenemos importados todos los arcihvos Tutle (.ttl) de data.gob desde tu repositorio. Ahora, debemos de crear una nueva imagen con el repositorio RDF creado. Para ello, ejecutamos el siguiente comando:
 
-`docker commit <container_id or name> <new_image_name>`: docker commit contenedor_rdf ibd-g2/export_data_gob
+`docker commit <container_id or name> <new_image_name>:<version>`. En nuestro caso: `docker commit contenedor_rdf ibd-g2/export_data_gob:latest`
 
 ### 7. Publicación de la imagen en DockerHub
 
