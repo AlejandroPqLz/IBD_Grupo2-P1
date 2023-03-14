@@ -109,4 +109,4 @@ Finalmete hemos completado el objetivo de la práctica, pues tenemos una imagen 
 
 ### 8. Explorar y probar su contenido
 
-Para comprobar el correcto funcionamiento de nuestra aplicación bastará con realizar con éxito una consulta SPARQL. Por ejemplo:
+Para comprobar el correcto funcionamiento de nuestra aplicación bastará con realizar con éxito una consulta SPARQL. Para ello, en nustro servicio levantado de RDF, nos dirigimos al aprtado de SPARQL que aparecerá en el panel izquierdo, donde podremos probar las queries que deseemos. Por ejemplo:
