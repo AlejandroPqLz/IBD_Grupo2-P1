@@ -31,36 +31,35 @@ Para la realización de la práctica serán necesarios los siguientes servicios:
 
 ***NOTA***: si se realiza desde MAC OS teclee `cmd`+`espace` para buscar y abrir la terminal de tu ordenador.
 
-![Barra de buscador en MAC OS para buscar el terminal|20](/images/search.png "Buscador MAC OS")
-<img src="/images/search.png" alt="a" width="200">
-<img src="/images/search.png" alt="a" width="400">
-<img src="/images/search.png" alt="a" width="600">
-<img src="/images/search.png" alt="a" width="800">
-![Buscar la terminal en MAC OS](/images/terminal.png "Terminal MAC OS")
+<img src="/images/search.png" caption="Barra de buscador en MAC OS para buscar el terminal" width="500">
+
+<img src="/images/terminal.png" caption="Buscar la terminal en MAC OS" width="500">
+
 
 **1.2** Una vez en la terminal, sitúate en la carpeta donde quieres clonar el repositorio, puedes hacerlo usando el siguiente comando: `cd <path>`.
 
-![En este caso, nos situaremos en el escritorio](/images/desktop.png "Carpeta de clonado")
+<img src="/images/desktop.png" caption="En este caso, nos situaremos en el escritorio para clonar la carpeta" width="500">
 
 ***NOTA***: Si su ruta tiene algún espacio o carácter especial, es necesario poner la ruta entre comillas dobles: `cd "<path>"`.
 
 **1.3** Una vez en la carpeta deseada, ejecuta el siguiente comando para clonar el repositorio:
 `git clone "https://github.com/AlejandroPqLz/IBD_Grupo2-P1.git"`
 
-![En este caso, nos situaremos en el escritorio](/images/clone.png "Carpeta de clonado")
-![Y la carpeta aparecerá en el escritorio](/images/cloned_folder.png "Carpeta clonada en el escritorio")
+<img src="/images/clone.png" caption="Clonamos el repositorio" width="500">
+<img src="/images/cloned_folder.png" caption="Y la carpeta clonada aparecerá en el escritorio" width="500">
 
 Para este paso, se ha proporcionado el HTTPS del repositorio de GitHub. Este link lo puedes encontrar en la página principal del [repositorio](https://github.com/AlejandroPqLz/IBD_Grupo2-P1), en la parte superior derecha, pulsando en el botón verde "Code". En la ventana que se abre, selecciona la opción "HTTPS" y copia el link. También puedes obtenerlo en el archivo [Repository.md](Repository.md) del repositorio de GitHub.
 
-![En este caso, nos situaremos en el escritorio](/images/https.png "Carpeta de clonado")
+<img src="/images/https.png" caption="HTTPS" width="500">
 
 Pero también se podría realizar mediente una llave SSH. Para ello, siga el fichero [MAC_guide](MAC_guide.md)
 
-![En este caso, nos situaremos en el escritorio](/images/ssh.png "Carpeta de clonado")
+<img src="/images/ssh.png" caption="Llave SSH" width="500">
+
 
 **1.4** Una vez clonado el repositorio, accede a la carpeta que se ha creado: `cd IBD_Grupo2-P1`.
 
-![Comando para situarse en la carpeta recién clonada](/images/folder_path.png "Cambio de directorio")
+<img src="/images/folder_path.png" caption="Comando para situarse en la carpeta recién clonada" width="500">
 
 ### 2. Creación del Servicio Virtual basado en Docker (*creación de imagen Docker*)
 
