@@ -54,7 +54,7 @@ ibd_g2       latest    64920a562003   10 minutes ago   681MB
 ...          ...       ...            ...              ...
 ```
 
-### 3. Ejecución de la imagen (contenedor)
+### 3. Ejecución de la imagen (*creación de un contenedor Docker*)
 
 ¡Perfecto!, ya hemos creado una imagen Docker. Pero esto no es suficiente, ahora tenemos que ejecutarla. Para ello, debemos crear un contenedor con el siguiente comando en tu terminal:
 
