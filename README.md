@@ -14,7 +14,7 @@ Todos los archivos han sido creados y modificados por los miembros del **Grupo 2
 
 ## Objetivo
 
-- Crear una imagen Docker, disponible en DockerHub, que despliegue un repositorio RDF con datos Turtle (.ttl) extraídos de datos.gob. Nosotros lo haremos con el conjunto de datos sobre incendios forestales, pero puede elegir otros. Para más información sobre otros datasets puede consultar: [datos.gob](https://datos.gob.es/es)
+- Crear una imagen Docker, disponible en DockerHub, que despliegue un repositorio RDF con datos Turtle (.ttl) extraídos de [datos.gob-incendios_forestales](https://datos.gob.es/es/catalogo/e05068001-estadistica-general-de-incendios-forestales). Nosotros lo haremos con el conjunto de datos sobre incendios forestales, pero puede elegir otros. Para más información sobre otros datasets puede consultar: [datos.gob](https://datos.gob.es/es)
 
 ## Requisitos
 
@@ -44,7 +44,7 @@ Mediante el clonado anterior, podrás encontrar todos los archivos necesarios pa
 
 Para la construcción de la imagen: `docker build -t <nombre> .`
 
-**NOTA**: Nosotros llamaremos a nuestra imagen: `ibd_g2`.
+**NOTA:** Nosotros llamaremos a nuestra imagen: `ibd_g2`.
 
 Perfecto! ya hemos creado una imagen Docker con los requisitos mencionados en el objetivo de la práctica. Puedes visualizarla ejecutando el siguiente comando en tu terminal: `docker images`
 
@@ -64,12 +64,21 @@ Ejecutamos el contendor en modo "detached", en segundo plano, con `-d` y publica
 
 ### 4. Acceso web al servicio levantado
 
-Gracias a la ejecución de la imagen y publicar los puertos ya podemos acceder al servicio vía web a través de la dirección local del puerto 7200: `http://localhost:7200/`.
+Una vez que hemos lanzado el contenedor a partir de la imagen creada, ya podemos acceder al servicio web a través de nuestro navegador. Para ello, simplemente abrimos una nueva pestaña en nuestro navegador y accedemos a la dirección local del puerto 7200: [http://localhost:7200/](http://localhost:7200/).
+
+De esta forma, podremos interactuar con el servicio virtual que hemos desplegado en el contenedor Docker de forma fácil y cómoda desde nuestra propia máquina. ¡Ya tienes tu servicio virtual desplegado y funcionando correctamente!
 
 ### 5. Despliegue del repositorio RDF e importación de archivos
 
-Una vez accedido al servicio via web, procedemos a crear nuestro repositorio RDF. Para ello, pulsamos en `setup` en la parte izquierda de la pantalla y le damos a `Repositories`. Una vez dentro, pinchamos `create new repository` y después `GraphDB Repository`, le asignamos un Repository ID y `Create`.
+Una vez accedido al servicio via web, procedemos a crear nuestro repositorio RDF. Para ello, pulsamos en `setup` en la parte izquierda de la pantalla y le damos a `Repositories`. Una vez dentro, pinchamos `create new repository` y después `GraphDB Repository`, le asignamos un Repository ID y `Create`. 
 A continuación, accedes a tu repositorio y en `Import`-`Server files` deberían estar disponible los archivos ttl.
+Una vez en servicio web, podremos acceder a la interfaz de GraphDB. Para crear nuestro repositorio **RDF** nos dirijimos al panel izquierdo de la pantalla y pulsamos en `setup`. Una vez dentro, pulsamos en `Repositories` y después en `create new repository`. Ahora, seleccionamos `GraphDB Repository` y al campo de `Repository ID` le asignamos el siguiente nombre `data`. Dejamos todos los demás campos como están por defecto y pulsamos en `Create`.
+
+¡Ya hemos creado nuestro repositorio RDF! En este repositorio ya están todos los archivos .ttl importados. Para poderlos visualizar, nos dirijimos nuevamente al panel izquierdo y seleccionamos `import`.
+
+**NOTA:** Es posible que deba de seleccionar el repositorio `data` para poder visualizar los archivos. Para ello, en la parte superior derecha, despliegue los repositorios disponibles y seleccione `data`.
+
+Una vez dentro de tu repositorio, selecciona la pestaña `Server files`. Si todo se ha realizado correctamente, ahí deberían estar todos los archivos .ttl de data.gob.es.
 
 ### 6. Creación de la imagen con el repositorio RDF
 
@@ -87,7 +96,7 @@ Al terminar la operación, ya podremos acceder a DockerHub y ver que la imagen s
 
 Finalmete hemos completado el objetivo de la práctica, pues tenemos una imagen (`ibd-g2/export_data_gob`) Docker utilizada para desplegar un repositorio RDF con los datos Turtle (.ttl) de un conjunto de datos de incendios forestales, disponibles en [datos.gob](https://datos.gob.es/es) e importados en GraphDB. Esta imagen se basa en la última versión de la plataforma GraphDB proporcionada por Ontotext.
 
-**NOTA**: La información a añadir como descripción en DockerHub se encuentra en el archivo *DH_info.md* del repositorio.
+**NOTA:** La información a añadir como descripción en DockerHub se encuentra en el archivo *DH_info.md* del repositorio.
 
 ### 8. Explorar y probar su contenido
 
