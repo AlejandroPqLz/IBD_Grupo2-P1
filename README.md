@@ -28,6 +28,7 @@ Para la realización de la práctica serán necesarios los siguientes servicios:
 ### 1. Clonado del repositorio de GitHub
 
 **1.1** Dirígete al buscador de Windows y busca `cmd` o `powershell` para abrir la terminal de tu ordenador.
+NOTA: si se realiza desde MAC OS teclee `cmd`+`alt` para buscar y abrir la terminal de tu ordenador.
 
 **1.2** Una vez en la terminal, sitúate en la carpeta donde quieres clonar el repositorio, puedes hacerlo usando el siguiente comando: `cd <path>`.
 
