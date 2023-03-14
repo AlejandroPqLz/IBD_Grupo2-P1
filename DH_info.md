@@ -6,7 +6,7 @@
 
 Imagen que despliega un repositorio RDF con datos Turtle de datos.gob e importados en GraphDB.
 
-**NOTA**: La descripción es tan corta pues DockerHub solo admite 100 caracteres para la esta.
+**NOTA**: La descripción es tan corta pues DockerHub solo admite 100 caracteres para esta.
 
 ## README.md
 
@@ -35,6 +35,7 @@ Para configurar esta imagen para sus necesidades específicas, puede seguir los 
 **1.** Cree un archivo Dockerfile en el directorio deseado con el siguiente contenido:
 
 ```
+# A partir de nuestra imagen
 FROM ibd-g2/export_data_gob
 
 # Configurar el repositorio GraphDB
