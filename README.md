@@ -50,12 +50,11 @@ Para la realización de la práctica serán necesarios los siguientes servicios:
 
 Para este paso, se ha proporcionado el HTTPS del repositorio de GitHub. Este link lo puedes encontrar en la página principal del [repositorio](https://github.com/AlejandroPqLz/IBD_Grupo2-P1), en la parte superior derecha, pulsando en el botón verde "Code". En la ventana que se abre, selecciona la opción "HTTPS" y copia el link. También puedes obtenerlo en el archivo [Repository.md](Repository.md) del repositorio de GitHub.
 
-<img src="/images/https.png" caption="HTTPS" width="500">
+<img src="/images/https.png" caption="HTTPS" width="200">
 
 Pero también se podría realizar mediente una llave SSH. Para ello, siga el fichero [MAC_guide](MAC_guide.md)
 
-<img src="/images/ssh.png" caption="Llave SSH" width="500">
-
+<img src="/images/ssh.png" caption="Llave SSH" width="200">
 
 **1.4** Una vez clonado el repositorio, accede a la carpeta que se ha creado: `cd IBD_Grupo2-P1`.
 
@@ -65,9 +64,12 @@ Pero también se podría realizar mediente una llave SSH. Para ello, siga el fic
 
 Mediante el clonado anterior, podrás encontrar todos los archivos necesarios para realizar el objetivo comentado con anterioridad, es decir, todos los archivos del repositorio de GitHub se encontrarán en tu carpeta local que hayas elegido. Entre ellos, se encuentra el archivo `Dockerfile` que contiene las instrucciones necesarias para crear la imagen Docker. A partir de este archivo, se creará la imagen Docker que contendrá el servicio virtual que se desplegará en el contenedor.
 
-Para la construcción de la imagen: `docker build -t <nombre> .`
+Para la construcción de la imagen, dentro de la carpeta creda en el **Paso 1**, ejecutamos: `docker build -t <nombre> .`
 
 ***NOTA***: Nosotros llamaremos a nuestra imagen: `ibd_g2`.
+
+<img src="/images/build_image.png" caption="Comando para construir la imagen" width="500">
+<img src="/images/image.png" caption="Imagen en Docker" width="500">
 
 Perfecto!, ya hemos creado una imagen Docker con los requisitos mencionados en el objetivo de la práctica. Puedes visualizarla ejecutando el siguiente comando en tu terminal: `docker images`
 
@@ -85,49 +87,65 @@ ibd_g2       latest    64920a562003   10 minutes ago   681MB
 
 Ejecutamos el contendor en modo "detached", en segundo plano, con `-d` y publicamos el puerto 7200 del contenedor en el host de Docker, que será el mismo puerto que está escuchando nuestra imagen creada anteriormente (véase en el archivo Dockerfile: `EXPOSE 7200`).
 
+<img src="/images/build_container.png" caption="Comando para construir el contenedor" width="500">
+<img src="/images/container.png" caption="Contenedor en Docker" width="500">
+
 ### 4. Acceso web al servicio levantado
 
 Una vez que hemos lanzado el contenedor a partir de la imagen creada, ya podemos acceder al servicio web a través de nuestro navegador. Para ello, simplemente abrimos una nueva pestaña en nuestro navegador y accedemos a la dirección local del puerto 7200: [http://localhost:7200/](http://localhost:7200/).
 
 De esta forma, podremos interactuar con el servicio virtual que hemos desplegado en el contenedor Docker de forma fácil y cómoda desde nuestra propia máquina. ¡Ya tienes tu servicio virtual desplegado y funcionando correctamente!
 
+<img src="/images/db.png" caption="Servicio virtual desplegado" width="500">
+
+***NOTA***: También se puede acceder desde Docker. En la parte deracha del nombre, clicamos sobre los tres puntos > Abrir en navegador
+
+<img src="/images/open_browser.png" caption="Abrir el contendeor en el navegador" width="500">
+
 ### 5. Despliegue del repositorio RDF e importación de archivos
 
-Una vez dentro de tu repositorio, selecciona la pestaña `Server files`. Si todo se ha realizado correctamente, ahí deberían estar todos los archivos .ttl de data.gob.es.
+Ahora desplegaaremos el repositorio RDF con los archivos `.ttl` de [datos.gob-incendios_forestales](https://datos.gob.es/es/catalogo/e05068001-estadistica-general-de-incendios-forestales).
 
 **5.1** Nos dirijimos al panel izquierdo de la pantalla y seleccionamos `setup` y posteriormente `Repositories`. 
+
+<img src="/images/setup.png" caption="Nos dirijimos a la sección de setup para crear el repositorio" width="500">
 
 **5.2** Una vez dentro, pulsamos en `create new repository` y después `GraphDB Repository`. Se nos reedigirá a una nueva pantalla donde deberemos de rellenar los siguientes campos:
 
 - `Repository ID`: `data`
 - Los demás campos los dejamos como están por defecto.
 
+<img src="/images/db_repository.png" caption="Crear un repositorio de tipo grafo" width="500">
+<img src="/images/data.png" caption="Crear un repositorio de tipo grafo" width="500">
+
 ¡Ya hemos creado nuestro repositorio RDF! En este repositorio ya están todos los archivos `.ttl` importados. 
 
 **5.3** Para poderlos visualizar, nos dirigimos nuevamente al panel izquierdo y seleccionamos `import`.
 
-***NOTA***: Es posible que deba de seleccionar el repositorio `data` para poder visualizar los archivos. Para ello, en la parte superior derecha, despliegue los repositorios disponibles y seleccione `data`.
+***NOTA***: Es posible que deba de seleccionar el repositorio `data` para poder visualizar los archivos. Para ello, en la parte superior derecha, despliegue los repositorios disponibles y seleccione `data` .
+
+<img src="/images/import_data.png" caption="Seleccionar el repositorio data" width="500">
 
 **5.4** Una vez dentro de tu repositorio, selecciona la pestaña `Server files`. Si todo se ha realizado correctamente, ahí deberían estar todos los archivos `.ttl` de [datos.gob-incendios_forestales](https://datos.gob.es/es/catalogo/e05068001-estadistica-general-de-incendios-forestales).
 
-
+<img src="/images/server_files.png" caption="Visualizaciónn de los archivos ttl" width="500">
 
 ### 6. Creación de la imagen con el repositorio RDF
 
 Ya hemos comprobado que el servicio web funciona correctamente y que tenemos todos los archivos `.ttl` importados correctamente en nuestro repositorio RDF llamado `data`. A continuación, lo que nos queda por hacer es guardar el estado actual del contenedor Docker, es decir, guardar la imagen Docker con el repositorio RDF creado. Para ello, debemos de crear una nueva imagen Docker a partir del contenedor que tenemos actualmente: `docker commit <container_name> <new_image>:<tag>`
 
-***NOTA***: Utilizaremos la versión de nuestro último *release* de GitHub, que en este caso es la `v1.4`: `docker commit graphdb ibd_g2/export_data_gob:v1.4`
+***NOTA***: Utilizaremos la versión de nuestro último *release* de GitHub, que en este caso es la `v3.0`: `docker commit graphdb ibd_g2/export_data_gob:v3.0`
 
-En el comando anterior, estamos creando una nueva imagen Docker a partir del contenedor `graphdb` a la que llamaremos `ibd_g2/export_data_gob` y le asignamos la versión `v1.4`.
+En el comando anterior, estamos creando una nueva imagen Docker a partir del contenedor `graphdb` a la que llamaremos `ibd_g2-export_data_gob` y le asignamos la versión `v3.0`.
 Ejecutando el siguiente comando, debería de ver algo parecido a esto: `docker images`
 
 ```
 REPOSITORY               TAG       IMAGE ID       CREATED          SIZE
-ibd_g2/export_data_gob   v1.4      15439fac5958   19 minutes ago   1.73GB
+ibd_g2/export_data_gob   v3.0      15439fac5958   19 minutes ago   1.73GB
 ibd_g2                   latest    87f8be82a675   19 hours ago     1.67GB
 ```
 
-Como podemos observar, hemos creado una nueva imagen Docker a partir del contenedor `graphdb` que se llama `ibd_g2/export_data_gob` y que tiene la versión `v1.4`. Esta imagen Docker contiene el repositorio RDF creado y todos los archivos `.ttl` importados, por tanto, deberíamos de poder ver que la nueva imagen tiene un tamaño mayor que la imagen original.
+Como podemos observar, hemos creado una nueva imagen Docker a partir del contenedor `graphdb` que se llama `ibd_g2-export_data_gob` y que tiene la versión `v3.0`. Esta imagen Docker contiene el repositorio RDF creado y todos los archivos `.ttl` importados, por tanto, deberíamos de poder ver que la nueva imagen tiene un tamaño mayor que la imagen original.
 
 
 ### 7. Publicación de la imagen en DockerHub
@@ -172,8 +190,8 @@ Finalmete hemos completado el objetivo de la práctica, pues tenemos una imagen 
 
 Ahora que ha publicado su imagen, puede explorar y probar su contenido realizando una consulta **SPARQL** en su servicio RDF levantado (https://localhost:7200/). En el panel izquierdo, dirígase a `SPARQL` y escriba la siguiente consulta:
 
-```
-!query
+``` sql
+SELECT * FROM EMP JOIN DEPT ON EMP.DEPTNO = DEPT.DEPTNO;
 ```
 
 ***NOTA***: En caso de que no se levante el servicio, compruebe que el contenedor está corriendo con el comando `docker ps`. 
