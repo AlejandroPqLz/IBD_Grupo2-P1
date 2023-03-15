@@ -70,9 +70,9 @@ Pero también se podría realizar mediante una llave SSH. Para ello, siga el fic
 
 Mediante el clonado anterior, podrás encontrar todos los archivos necesarios para realizar el objetivo comentado con anterioridad, es decir, todos los archivos del repositorio de GitHub se encontrarán en tu carpeta local que hayas elegido. Entre ellos, se encuentra el archivo `Dockerfile` que contiene las instrucciones necesarias para crear la imagen Docker. A partir de este archivo, se creará la imagen Docker que contendrá el servicio virtual que se desplegará en cualquier contenedor con esa imagen.
 
-Para la construcción de la imagen, dentro de la carpeta clonada en el **Paso 1**, ejecutamos: `docker build -t <nombre> .`. ¡IMPORTANTE! el ` .` después de dar el nombre a la imagen pues esto indicará que se debe de buscar dentro del directorio actual el archivo `Dockerfile` para ejecutarlo y poder crear la iamgen.
+Para la construcción de la imagen, dentro de la carpeta clonada en el **Paso 1**, ejecutamos: `docker build -t <nombre> .`. ¡IMPORTANTE!, el ` .` después de dar el nombre a la imagen, pues esto indicará que se debe de buscar dentro del directorio actual el archivo `Dockerfile` para ejecutarlo y poder crear la imagen.
 
-***NOTA***: Nosotros llamaremos a nuestra imagen: `ibd_g2`. Será un nombre sencillo pues es la imagen "intermedia" no la final que subiremos a DockerHub. Esta sí tendrá los requisitos esperados en cuanto al nombre de una imagen.
+***NOTA***: Nosotros llamaremos a nuestra imagen: `ibd_g2`. Será un nombre sencillo, pues es la imagen "intermedia" no la final que subiremos a DockerHub. Esta sí tendrá los requisitos esperados en cuanto al nombre de una imagen.
 
 <img src="/images/build_image.png" caption="Comando para construir la imagen" width="500">
 <img src="/images/image.png" caption="Imagen en Docker" width="500">
@@ -81,7 +81,7 @@ Para la construcción de la imagen, dentro de la carpeta clonada en el **Paso 1*
 
 ```
 REPOSITORY   TAG       IMAGE ID       CREATED          SIZE
-ibd_g2       latest    64920a562003   2 minutes ago   681MB
+ibd_g2       latest    64920a562003   6 minutes ago   681MB
 ...          ...       ...            ...              ...
 ```
 
@@ -138,13 +138,13 @@ Ahora desplegaremos el repositorio RDF con los archivos `.ttl` de [datos.gob-inc
 
 ### 6. Creación de la imagen con el repositorio RDF
 
-Ya hemos comprobado que el servicio web funciona correctamente y que tenemos todos los archivos `.ttl` importados correctamente en nuestro repositorio RDF llamado `data`. A continuación, lo que nos queda por hacer es guardar el estado actual del contenedor Docker, es decir, guardar la imagen Docker con el repositorio RDF creado. Para ello, debemos de crear una nueva imagen Docker a partir del contenedor que tenemos actualmente esto se hace sencillamente con el siguiente comando docker: 
+Ya hemos comprobado que el servicio web funciona correctamente y que tenemos todos los archivos `.ttl` importados correctamente en nuestro repositorio RDF llamado `data`. A continuación, lo que nos queda por hacer es guardar el estado actual del contenedor Docker, es decir, guardar la imagen Docker con el repositorio RDF creado. Para ello, debemos de crear una nueva imagen Docker a partir del contenedor que tenemos actualmente, esto se hace sencillamente con el siguiente comando docker: 
 
 `docker commit <container_name> <new_image_name>:<tag>`
 
 ***NOTA***: Utilizaremos la versión de nuestro último *release* de GitHub, que en este caso es la `v3.0`: `docker commit graphdb ibd_g2-export_data_gob:v3.0`. Nótese que esta ya es la imagen final que satisface los objetivos de la práctica. Por ello, por ser ya la imagen final, cumpliremos con los requisitos que se esperan de en cuanto al nombre de la imagen.
 
-Para comprobar que todo se ha ejecutado correctamente visualizamos las imagenes disponibles con: `docker images`
+Para comprobar que todo se ha ejecutado correctamente, visualizamos las imagenes disponibles con: `docker images`
 
 ```
 REPOSITORY               TAG       IMAGE ID       CREATED          SIZE
@@ -198,7 +198,7 @@ Una vez rellenamos los campos, ciclamos en `Create` y aprovechamos en este paso 
 
 Si todo ha ido bien, en ambas opciones, la imagen debería de descargarse correctamente.
 
-Finalmente hemos completado el objetivo de la práctica, pues tenemos una imagen (`ibd_g2-export_data_gob`) Docker utilizada para desplegar un repositorio RDF con los datos Turtle (.ttl) de un conjunto de datos de incendios forestales, disponibles en [datos.gob](https://datos.gob.es/es) e importados en GraphDB. Esta imagen se basa en la última versión de la plataforma GraphDB proporcionada por Ontotext.
+Finalmente, hemos completado el objetivo de la práctica, pues tenemos una imagen (`ibd_g2-export_data_gob`) Docker utilizada para desplegar un repositorio RDF con los datos Turtle (.ttl) de un conjunto de datos de incendios forestales, disponibles en [datos.gob](https://datos.gob.es/es) e importados en GraphDB. Esta imagen se basa en la última versión de la plataforma GraphDB proporcionada por Ontotext.
 
 ### 8. Explorar y probar su contenido
 
