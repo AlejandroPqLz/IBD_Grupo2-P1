@@ -191,7 +191,10 @@ Finalmete hemos completado el objetivo de la práctica, pues tenemos una imagen 
 Ahora que ha publicado su imagen, puede explorar y probar su contenido realizando una consulta **SPARQL** en su servicio RDF levantado (https://localhost:7200/). En el panel izquierdo, dirígase a `SPARQL` y escriba la siguiente consulta:
 
 ``` sql
-SELECT * FROM EMP JOIN DEPT ON EMP.DEPTNO = DEPT.DEPTNO;
+SELECT * 
+WHERE 
+    { ?s ?p ?o .} 
+LIMIT 100 
 ```
 
 ***NOTA***: En caso de que no se levante el servicio, compruebe que el contenedor está corriendo con el comando `docker ps`. 
