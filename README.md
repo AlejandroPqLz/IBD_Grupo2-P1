@@ -73,7 +73,7 @@ Mediante el clonado anterior, podrás encontrar todos los archivos necesarios pa
 
 Para la construcción de la imagen, dentro de la carpeta clonada en el **Paso 1**, ejecutamos: `docker build -t <image_name> .`. 
 
-***NOTA***: <span style="¡IMPORTANTE!">: No se olvide del ` .` al final del comando. Este indica que se debe de buscar dentro del directorio actual el archivo `Dockerfile` para ejecutarlo y poder crear la imagen.
+***NOTA***: <span style="color:red">***¡IMPORTANTE!***</style>: No se olvide del ` .` al final del comando. Este indica que se debe de buscar dentro del directorio actual el archivo `Dockerfile` para ejecutarlo y poder crear la imagen.
 
 ***NOTA***: Nosotros llamaremos a nuestra imagen: `ibd_g2`. Será un nombre sencillo, pues es la imagen "intermedia", no la final que subiremos a DockerHub. Esta sí tendrá los requisitos esperados en cuanto al nombre de una imagen.
 
