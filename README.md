@@ -179,7 +179,7 @@ Ahora desplegaremos el repositorio RDF con los archivos `.ttl` de [datos.gob-inc
 
 **5.6** Para comprobar que se han importado correctamente, dirígase a la página princiapl, en el panel de la izquierda, y click en el logo, `GraphDB`. Le debería de aparecer una pantalla nueva donde se debería de tener el repositorio `data` creado anteriormente con todos los archivos de ya importados (aproximadamente unos 6M).
 
-    <img src="/images/after_import.png" caption="Imagen" width="500">
+<img src="/images/after_import.png" caption="Imagen" width="500">
 
 ### 6. Creación de la imagen con el repositorio RDF
 
@@ -224,8 +224,6 @@ Como podemos observar, hemos creado una nueva imagen Docker a partir del contene
 <img src="/images/7.2.3.png" caption="Imagen" width="500">
 
 Una vez rellenamos los campos, ciclamos en `Create` y aprovechamos en este paso para añadir el **README** a nivel de usuario que se encuentra en el archivo [DH_info](DH_info) donde se proporciona información sobre cómo utilizar la imagen que subiremos en los siguientes pasos. Con esto conseguimos documentar la imagen subida a DockerHub correctamente.
-
-    !IMG de la imagen final en dockerhub con la descripción y el README obv no aparecerá que está subida pero si el repositorio con la info para el uso correcto de la imagen a nivel de usuario!
 
 <img src="/images/7.2.4.png" caption="Imagen" width="500">
 
