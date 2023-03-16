@@ -88,17 +88,18 @@ docker build -t ibd_g2 .
 
 ¡Perfecto!, ya hemos creado una imagen Docker. Puedes visualizarla ejecutando el siguiente comando en tu terminal: `docker images`
 
-```
-REPOSITORY   TAG       IMAGE ID       CREATED          SIZE
-ibd_g2       latest    64920a562003   6 minutes ago   681MB
-...          ...       ...            ...              ...
-```
+    REPOSITORY   TAG       IMAGE ID       CREATED          SIZE
+    ibd_g2       latest    64920a562003   6 minutes ago   681MB
+    ...          ...       ...            ...              ...
+
 
 ### 3. Ejecución de la imagen (*creación de un contenedor Docker*)
 
 Ahora bien, crear la imagen Docker no es suficiente, ahora tenemos que ejecutarla. Para ello, debemos crear un contenedor con el siguiente comando en tu terminal:
 
-`docker run -p 7200:7200 -d --name contenedor_rdf ibd_g2`
+```
+docker run -p 7200:7200 -d --name contenedor_rdf ibd_g2
+```
 
 Ejecutamos el contendor en modo "detached", en segundo plano, con `-d` y publicamos el puerto 7200 del contenedor en el host de Docker con `-p`, que será el mismo puerto que está escuchando nuestra imagen creada anteriormente (véase en el archivo Dockerfile: `EXPOSE 7200`).
 
@@ -154,20 +155,22 @@ Ahora desplegaremos el repositorio RDF con los archivos `.ttl` de [datos.gob-inc
 
 ### 6. Creación de la imagen con el repositorio RDF
 
-Ya hemos comprobado que el servicio web funciona correctamente y que tenemos todos los archivos `.ttl` importados correctamente en nuestro repositorio RDF llamado `data`. A continuación, lo que nos queda por hacer es guardar el estado actual del contenedor Docker, es decir, guardar la imagen Docker con el repositorio RDF creado. Para ello, debemos de crear una nueva imagen Docker a partir del contenedor que tenemos actualmente, esto se hace sencillamente con el siguiente comando docker: 
+Ya hemos comprobado que el servicio web funciona correctamente y que tenemos todos los archivos `.ttl` importados correctamente en nuestro repositorio RDF llamado `data`. A continuación, lo que nos queda por hacer es guardar el estado actual del contenedor Docker, es decir, guardar la imagen Docker con el repositorio RDF creado. Para ello, debemos de crear una nueva imagen Docker a partir del contenedor que tenemos actualmente, esto se hace sencillamente con el siguiente comando docker: `docker commit <container_name> <new_image_name>:<tag>`
 
-`docker commit <container_name> <new_image_name>:<tag>`
+***NOTA***: Utilizaremos la versión de nuestro último *release* de GitHub, que en este caso es la `v3.0`: 
 
-***NOTA***: Utilizaremos la versión de nuestro último *release* de GitHub, que en este caso es la `v3.0`: `docker commit graphdb ibd_g2-export_data_gob:v3.0`. Nótese que esta ya es la imagen final que satisface los objetivos de la práctica. Por ello, por ser ya la imagen final, cumpliremos con los requisitos que se esperan de en cuanto al nombre de la imagen.
+```
+docker commit graphdb ibd_g2-export_data_gob:v3.0
+```
+
+Nótese que esta ya es la imagen final que satisface los objetivos de la práctica. Por ello, por ser ya la imagen final, cumpliremos con los requisitos que se esperan de en cuanto al nombre de la imagen.
 
 Para comprobar que todo se ha ejecutado correctamente, visualizamos las imagenes disponibles con: `docker images`
 
-```
-REPOSITORY               TAG       IMAGE ID       CREATED          SIZE
-ibd_g2-export_data_gob   v3.0      15439fac5958   2 minutes ago   1.73GB
-ibd_g2                   latest    87f8be82a675   6 hours ago     1.67GB
-...                      ...       ...            ...              ...
-```
+    REPOSITORY               TAG       IMAGE ID       CREATED          SIZE
+    ibd_g2-export_data_gob   v3.0      15439fac5958   2 minutes ago   1.73GB
+    ibd_g2                   latest    87f8be82a675   6 hours ago     1.67GB
+    ...                      ...       ...            ...              ...
 
 Como podemos observar, hemos creado una nueva imagen Docker a partir del contenedor `graphdb` que se llama `ibd_g2-export_data_gob` y que tiene la versión más reciente de nuestro repositorio: `v3.0`. Esta imagen Docker contiene el repositorio RDF creado y todos los archivos `.ttl` importados, por tanto, deberíamos de poder ver que la nueva imagen tiene un tamaño mayor que la imagen anterior.
 
@@ -188,17 +191,26 @@ Como podemos observar, hemos creado una nueva imagen Docker a partir del contene
 
 Una vez rellenamos los campos, ciclamos en `Create` y aprovechamos en este paso para añadir el README a nivel de usuario que se encuentra en el archivo [DH_info](DH_info) donde se proporciona información sobre cómo utilizar la imagen que subiremos en los siguientes pasos.
 
-**7.3** Una vez que se haya creado el repositorio, regrese a la terminal. Antes de subir la imagen, inicie sesión en Dockerhub desde la terminal con el siguiente comando: `docker login -u <username>`
+**7.3** Una vez que se haya creado el repositorio, regrese a la terminal. Antes de subir la imagen, inicie sesión en Dockerhub desde la terminal con el siguiente comando: 
+
+```
+docker login -u <username>
+```
 
 **7.4** Después de iniciar sesión, etiquete su imagen con su nombre de usuario de DockerHub. Si no etiqueta su imagen, Docker no sabrá, a la hora de subir su imagne, a qué repositorio de DockerHub subirla:
 
-`docker tag ibd_g2-export_data_gob:v3.0 <username>/ibd_g2-export_data_gob:v3.0`
+```
+docker tag ibd_g2-export_data_gob:v3.0 <username>/ibd_g2-export_data_gob:v3.0
+```
 
-***NOTA***: `<username>` es su nombre de usuario de DockerHub.
+***NOTA***: `<username>` es su nombre de usuario de DockerHub. Cambie dicho parámetro
 
 **7.5** Una vez etiquetada, ya podemos subir la imagen a DockerHub:
 
-`docker push <username>/ibd_g2-export_data_gob:v3.0`
+```
+docker push <username>/ibd_g2-export_data_gob:v3.0
+```
+
 
 ***NOTA***: Aquí es donde más importancia hay que dar a lo de la versión de la imagen, pues si no especificas una, Docker usar por defecto la versión `latest`.
 
