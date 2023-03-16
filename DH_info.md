@@ -1,6 +1,6 @@
 # DockerHub
 
-- Este es un archivo markdown con la información necesaria para poder completar la *distribución del servicio* que generamos en esta práctica a la vez que el apartado de *reproducibilidad*. Es decir, se aportará una descripción de su contenido con información de utilización de la imagen `ibd-g2/export_data_gob`. Obviamente el contenido de este archivo es el mismo que el que se puede encontrar en DockerHub.
+- Este es un archivo markdown con la información necesaria para poder completar la *distribución del servicio* que generamos en esta práctica a la vez que el apartado de *reproducibilidad*. Es decir, se aportará una descripción de su contenido con información de utilización de la imagen `ibd_g2-export_data_gob`. Obviamente el contenido de este archivo es el mismo que el que se puede encontrar en DockerHub.
 
 ## Descripción
 
@@ -10,7 +10,7 @@ Imagen que despliega un repositorio RDF con datos Turtle de datos.gob e importad
 
 ## README.md
 
-- Esta sección proporciona información sobre cómo utilizar la imagen `ibd-g2-export_data_gob` de Docker.
+- Esta sección proporciona información sobre cómo utilizar la imagen `ibd_g2-export_data_gob` de Docker.
 
 ### Requisitos previos
 
@@ -20,9 +20,9 @@ Antes de utilizar esta imagen, asegúrese de que su sistema cumpla tenga Docker 
 
 Para utilizar esta imagen, siga los siguientes pasos:
 
-**1.** Descargue la imagen desde DockerHub ejecutando el siguiente comando: `docker pull ibd-g2-export_data_gob:v3.1`
+**1.** Descargue la imagen desde DockerHub ejecutando el siguiente comando: `docker pull carlotaupm/ibd-g2-export_data_gob:v3.2`
 
-**2.** Cree un contenedor a partir de la imagen descargada: `docker run -p 7200:7200 -d --name rdf-repo_ibd-g2-export_data_gob`
+**2.** Cree un contenedor a partir de la imagen descargada: `docker run -p 7200:7200 -d --name rdf-repo carlotaupm/ibd-g2-export_data_gob:v3.2`
 
 Este comando creará un contenedor de Docker, en segundo plano, con el nombre "rdf-repo" y expondrá el puerto 7200 en el host local.
 
