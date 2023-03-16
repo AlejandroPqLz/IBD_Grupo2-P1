@@ -287,6 +287,8 @@ Si todo ha ido bien, en ambas opciones, la imagen debería de descargarse correc
 
 Finalmente, hemos completado el objetivo de la práctica, pues tenemos una imagen (`ibd_g2-export_data_gob`) Docker utilizada para desplegar un repositorio RDF con los datos Turtle (.ttl) de un conjunto de datos de incendios forestales, disponibles en [datos.gob](https://datos.gob.es/es) e importados en GraphDB. Esta imagen se basa en la última versión de la plataforma GraphDB proporcionada por Ontotext.
 
+Link a la imagen en Docker Hub : [Imagen en Docker Hub] (https://hub.docker.com/repository/docker/carlotaupm/ibd_g2-export_data_gob/general)
+
 ### 8. Explorar y probar su contenido
 
 Ahora que ha publicado su imagen, puede explorar y probar su contenido realizando una consulta **SPARQL** en su servicio RDF levantado (https://localhost:7200/). Para ello, en el panel izquierdo, diríjase a `SPARQL` y escriba la siguiente consulta de prueba:
