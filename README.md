@@ -264,9 +264,19 @@ docker push <username>/ibd_g2-export_data_gob:v3.2
 
 - *OPCIÓN 1:* Pedirle a un compañero que ejecute el siguiente comando: `docker pull <username>/ibd_g2-export_data_gob:v3.2`
 
+En nuestro caso
+```
+docker pull carlotaupm/ibd_g2-export_data_gob:v3.2
+```
+
 <img src="/images/7.a.png" caption="Imagen" width="500">
 
 - *OPCIÓN 2:* Dirigirse a [Play with Docker](https://labs.play-with-docker.com/), darle a `Login` y posteriormente a `docker` y finalmente a `Start`. Una vez dentro, en el panel izquierdo, dale a `+ ADD NEW INSTANCE`. Se le abrirá una terminal nueva, en la que deberás de ejecutar el siguiente comando: `docker pull <username>/ibd_g2-export_data_gob:v3.2`
+
+En nuestro caso
+```
+docker pull carlotaupm/ibd_g2-export_data_gob:v3.2
+```
 
 <img src="/images/7.b.1.png" caption="Imagen" width="500">
 <img src="/images/7.b.2.png" caption="Imagen" width="300">
