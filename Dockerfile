@@ -16,11 +16,5 @@ RUN curl -O -L https://datos.iepnb.es/datasets/incendios-forestales.tgz
 # Unzip the data
 RUN tar zxvf incendios-forestales.tgz
 
-<<<<<<< HEAD
-=======
-# Move the data to the directory /root/graphdb-import
-RUN mv incendios-forestales/ /root/graphdb import/.
-
->>>>>>> 620651c06f4d370d6f356531ef0ec6c93e3dfe6a
 # Expose port 7200
 EXPOSE 7200
