@@ -37,6 +37,7 @@ Para la realización de la práctica serán necesarios los siguientes servicios:
 
 ***NOTA***: si se realiza desde MAC OS teclee `cmd`+`espace` para buscar y abrir la terminal de tu ordenador.
 
+![image](/images/search.png "Barra de buscador en MAC OS para buscar el terminal") 
 <img src="/images/search.png" caption="Barra de buscador en MAC OS para buscar el terminal" width="500">
 
 <img src="/images/terminal.png" caption="Buscar la terminal en MAC OS" width="500">
@@ -49,8 +50,7 @@ Para la realización de la práctica serán necesarios los siguientes servicios:
 
 
 **1.3** Una vez en la carpeta deseada, ejecuta el siguiente comando para clonar el repositorio:
-
-`git clone "https://github.com/AlejandroPqLz/IBD_Grupo2-P1.git"`
+    git clone "https://github.com/AlejandroPqLz/IBD_Grupo2-P1.git"
 
 <img src="/images/clone.png" caption="Clonamos el repositorio" width="500">
 <img src="/images/cloned_folder.png" caption="Y la carpeta clonada aparecerá en el escritorio" width="500">
@@ -63,9 +63,13 @@ Para este paso, se ha proporcionado el HTTPS del repositorio de GitHub. Esta URL
 
 <img src="/images/ssh.png" caption="Llave SSH" width="200">
 
-**1.4** Una vez clonado el repositorio, accede a la carpeta que se ha creado: `cd IBD_Grupo2-P1`. Esto se hace, pues, queremos ejecutar los archivos de la carpeta para la creación de la imagen a través del terminal.
+**1.4** Una vez clonado el repositorio, accede a la carpeta que se ha creado: 
+    cd IBD_Grupo2-P1 
+    
+Esto se hace, pues, queremos ejecutar los archivos de la carpeta para la creación de la imagen a través del terminal.
 
 <img src="/images/folder_path.png" caption="Comando para situarse en la carpeta recién clonada" width="500">
+
 
 ### 2. Creación del Servicio Virtual basado en Docker (*creación de imagen Docker*)
 
@@ -73,26 +77,26 @@ Mediante el clonado anterior, podrás encontrar todos los archivos necesarios pa
 
 Para la construcción de la imagen, dentro de la carpeta clonada en el **Paso 1**, ejecutamos: `docker build -t <image_name> .` 
 
-***NOTA***: <font color="red">***¡IMPORTANTE!***</font> No se olvide del ` .` al final del comando. Este indica que se debe de buscar dentro del directorio actual el archivo `Dockerfile` para ejecutarlo y poder crear la imagen.
+***NOTA 1***: ${\color{red}¡IMPORTANTE!}$ No se olvide del ` .` al final del comando. Este indica que se debe de buscar dentro del directorio actual el archivo `Dockerfile` para ejecutarlo y poder crear la imagen.
 
-***NOTA***: Nosotros llamaremos a nuestra imagen: `ibd_g2`. Este es un nombre sencillo ya que se trata de la imagen *"intermedia"*, y no de la imagen final que se subirá a **DockerHub**. La imagen final cumplirá con los requisitos adecuados en cuanto al nombre de una imagen.
+***NOTA 2***: Nosotros llamaremos a nuestra imagen: `ibd_g2`. Este es un nombre sencillo ya que se trata de la imagen *"intermedia"*, y no de la imagen final que se subirá a **DockerHub**. La imagen final cumplirá con los requisitos adecuados en cuanto al nombre de una imagen.
+
+    docker build -t ibd_g2 .
 
 <img src="/images/build_image.png" caption="Comando para construir la imagen" width="500">
 <img src="/images/image.png" caption="Imagen en Docker" width="500">
 
 ¡Perfecto!, ya hemos creado una imagen Docker. Puedes visualizarla ejecutando el siguiente comando en tu terminal: `docker images`
 
-```
-REPOSITORY   TAG       IMAGE ID       CREATED          SIZE
-ibd_g2       latest    64920a562003   6 minutes ago   681MB
-...          ...       ...            ...              ...
-```
+    REPOSITORY   TAG       IMAGE ID       CREATED          SIZE
+    ibd_g2       latest    64920a562003   6 minutes ago   681MB
+    ...          ...       ...            ...              ...
+
 
 ### 3. Ejecución de la imagen (*creación de un contenedor Docker*)
 
 Ahora bien, crear la imagen Docker no es suficiente, ahora tenemos que ejecutarla. Para ello, debemos crear un contenedor con el siguiente comando en tu terminal:
-
-`docker run -p 7200:7200 -d --name contenedor_rdf ibd_g2`
+    docker run -p 7200:7200 -d --name contenedor_rdf ibd_g2
 
 Ejecutamos el contendor en modo "detached", en segundo plano, con `-d` y publicamos el puerto 7200 del contenedor en el host de Docker con `-p`, que será el mismo puerto que está escuchando nuestra imagen creada anteriormente (véase en el archivo Dockerfile: `EXPOSE 7200`).
 
@@ -153,20 +157,22 @@ Ahora desplegaremos el repositorio RDF con los archivos `.ttl` de [datos.gob-inc
 
 ### 6. Creación de la imagen con el repositorio RDF
 
-Ya hemos comprobado que el servicio web funciona correctamente y ya tenemos todos los archivos `.ttl` importados correctamente en nuestro repositorio RDF `data`. A continuación, lo que nos queda por hacer es guardar el estado actual del contenedor Docker, es decir, guardar la imagen Docker con el repositorio RDF creado. Para ello, debemos de crear una nueva imagen Docker a partir del contenedor que tenemos actualmente, esto se hace sencillamente con el siguiente comando docker:
+Ya hemos comprobado que el servicio web funciona correctamente y que tenemos todos los archivos `.ttl` importados correctamente en nuestro repositorio RDF llamado `data`. A continuación, lo que nos queda por hacer es guardar el estado actual del contenedor Docker, es decir, guardar la imagen Docker con el repositorio RDF creado. Para ello, debemos de crear una nueva imagen Docker a partir del contenedor que tenemos actualmente, esto se hace sencillamente con el siguiente comando docker:
 
-`docker commit <container_name> <new_image_name>:<tag>`
+```
+docker commit graphdb ibd_g2-export_data_gob:v3.0
+```
 
-***NOTA***: Utilizaremos la versión de nuestro último *release* de GitHub, que en este caso es la `v3.0`: `docker commit graphdb ibd_g2-export_data_gob:v3.0`. Nótese que esta ya es la imagen final que satisface los objetivos de la práctica. Por ello, por ser ya la imagen final, cumpliremos con los requisitos que se esperan de en cuanto al nombre de la imagen.
+***NOTA***: Utilizaremos la versión de nuestro último *release* de GitHub, que en este caso es la `v3.0`:
+
+Nótese que esta ya es la imagen final que satisface los objetivos de la práctica. Por ello, por ser ya la imagen final, cumpliremos con los requisitos que se esperan de en cuanto al nombre de la imagen.
 
 Para comprobar que todo se ha ejecutado correctamente, visualizamos las imagenes disponibles con: `docker images`
 
-```
-REPOSITORY               TAG       IMAGE ID       CREATED          SIZE
-ibd_g2-export_data_gob   v3.0      15439fac5958   2 minutes ago   1.73GB
-ibd_g2                   latest    87f8be82a675   6 hours ago     1.67GB
-...                      ...       ...            ...              ...
-```
+    REPOSITORY               TAG       IMAGE ID       CREATED          SIZE
+    ibd_g2-export_data_gob   v3.0      15439fac5958   2 minutes ago   1.73GB
+    ibd_g2                   latest    87f8be82a675   6 hours ago     1.67GB
+    ...                      ...       ...            ...              ...
 
 Como podemos observar, hemos creado una nueva imagen Docker a partir del contenedor `graphdb` que se llama `ibd_g2-export_data_gob` y que tiene la versión más reciente de nuestro repositorio: `v3.0`. Esta imagen Docker contiene el repositorio RDF creado y todos los archivos `.ttl` importados, por tanto, deberíamos de poder ver que la nueva imagen tiene un tamaño mayor que la imagen anterior.
 
@@ -191,17 +197,26 @@ Una vez rellenamos los campos, ciclamos en `Create` y aprovechamos en este paso 
 
     !IMG de la imagen final en dockerhub con la descripcion y el README obv no aparecerá que está subida pero si el repositorio con la info para el uso correcto de la imagen a nivel de usuario!
 
-**7.3** Una vez que se haya creado el repositorio, regrese a la terminal. Antes de subir la imagen, inicie sesión en Dockerhub desde la terminal con el siguiente comando: `docker login -u <username>`
+**7.3** Una vez que se haya creado el repositorio, regrese a la terminal. Antes de subir la imagen, inicie sesión en Dockerhub desde la terminal con el siguiente comando: 
+
+```
+docker login -u <username>
+```
 
 **7.4** Después de iniciar sesión, etiquete su imagen con su nombre de usuario de DockerHub. Si no etiqueta su imagen, Docker no sabrá, a la hora de subir su imagne, a qué repositorio de DockerHub subirla:
 
-`docker tag ibd_g2-export_data_gob:v3.0 <username>/ibd_g2-export_data_gob:v3.0`
+```
+docker tag ibd_g2-export_data_gob:v3.0 <username>/ibd_g2-export_data_gob:v3.0
+```
 
-***NOTA***: `<username>` es su nombre de usuario de DockerHub.
+***NOTA***: `<username>` es su nombre de usuario de DockerHub. Cambie dicho parámetro
 
 **7.5** Una vez etiquetada, ya podemos subir la imagen a DockerHub:
 
-`docker push <username>/ibd_g2-export_data_gob:v3.0`
+```
+docker push <username>/ibd_g2-export_data_gob:v3.0
+```
+
 
 ***NOTA***: Aquí es donde más importancia hay que dar a lo de la **versión de la imagen**, pues si no especificas una, Docker usar por defecto la versión `latest`.
 
