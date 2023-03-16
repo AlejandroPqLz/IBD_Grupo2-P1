@@ -167,17 +167,19 @@ Ahora desplegaremos el repositorio RDF con los archivos `.ttl` de [datos.gob-inc
 
 <img src="/images/server_files.png" caption="Visualizaciónn de los archivos ttl" width="500">
 
-**5.5** Ahora, para importar los archivos al repositorio `data`, slecciona todos los archivos `.ttl` y pulsa en `import`. (*Espere unos minutos*)
+**5.5** Por defecto, cuando creas un repositorio aparecen 70 archivos inferidos.
 
-    !IMG!
+    <img src="/images/before_import.png" width="500">Ahora,
+    
+ Para importar los archivos al repositorio `data`, slecciona todos los archivos `.ttl` y pulsa en `import`. (*Espere unos minutos*)
+
+    <img src="/images/import.png" width="500">
+    <img src="/images/import_files.png"  width="500">
+
 
 **5.6** Para comprobar que se han importado correctamente, dirígase a la página princiapl, en el panel de la izquierda, y click en el logo, `GraphDB`. Le debería de aparecer una pantalla nueva donde se debería de tener el repositorio `data` creado anteriormente con todos los archivos de ya importados (aproximadamente unos 6M).
 
-    !IMG del repositorio con todos los archivos ttl ya subidos (6M)!
-
-***NOTA***: Por defecto, cuando creas un repositorio aparecen 70 archivos inferidos.
-
-    !IMG del repositorio con los 70 archivos solo!
+    <img src="/images/after_import.png" width="500">
 
 ### 6. Creación de la imagen con el repositorio RDF
 
