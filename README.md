@@ -281,6 +281,8 @@ Finalmente, hemos completado el objetivo de la práctica, pues tenemos una image
 
 Ahora que ha publicado su imagen, puede explorar y probar su contenido realizando una consulta **SPARQL** en su servicio RDF levantado (https://localhost:7200/). Para ello, en el panel izquierdo, diríjase a `SPARQL` y escriba la siguiente consulta de prueba:
 
+La siguiente query seleccionna todas las tripletas hasta un límite de 100:
+
 ``` sql
 SELECT * 
 WHERE 
