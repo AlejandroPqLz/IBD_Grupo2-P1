@@ -59,7 +59,7 @@ Para este paso, se ha proporcionado el HTTPS del repositorio de GitHub. Esta URL
 
 <img src="/images/https.png" caption="HTTPS" width="200">
 
-Pero también se podría realizar mediante una llave SSH. Para ello, siga el fichero [MAC_guide](MAC_guide.md)
+***NOTA***: Pero también se podría realizar mediante una llave SSH. Para ello, siga el fichero [MAC_guide](MAC_guide.md)
 
 <img src="/images/ssh.png" caption="Llave SSH" width="200">
 
@@ -71,9 +71,11 @@ Pero también se podría realizar mediante una llave SSH. Para ello, siga el fic
 
 Mediante el clonado anterior, podrás encontrar todos los archivos necesarios para realizar el objetivo comentado con anterioridad, es decir, todos los archivos del repositorio de GitHub se encontrarán en tu carpeta local que hayas elegido. Entre ellos, se encuentra el archivo `Dockerfile` que contiene las instrucciones necesarias para crear la imagen Docker. A partir de este archivo, se creará la imagen Docker que contendrá el servicio virtual que se desplegará en cualquier contenedor con esa imagen.
 
-Para la construcción de la imagen, dentro de la carpeta clonada en el **Paso 1**, ejecutamos: `docker build -t <nombre> .`. ¡IMPORTANTE!, el ` .` después de dar el nombre a la imagen, pues esto indicará que se debe de buscar dentro del directorio actual el archivo `Dockerfile` para ejecutarlo y poder crear la imagen.
+Para la construcción de la imagen, dentro de la carpeta clonada en el **Paso 1**, ejecutamos: `docker build -t <image_name> .`. 
 
-***NOTA***: Nosotros llamaremos a nuestra imagen: `ibd_g2`. Será un nombre sencillo, pues es la imagen "intermedia" no la final que subiremos a DockerHub. Esta sí tendrá los requisitos esperados en cuanto al nombre de una imagen.
+***¡IMPORTANTE!***: El ` .` seguido del nombre a la imagen indica que se debe de buscar dentro del directorio actual el archivo `Dockerfile` para ejecutarlo y poder crear la imagen.
+
+***NOTA***: Nosotros llamaremos a nuestra imagen: `ibd_g2`. Será un nombre sencillo, pues es la imagen "intermedia", no la final que subiremos a DockerHub. Esta sí tendrá los requisitos esperados en cuanto al nombre de una imagen.
 
 <img src="/images/build_image.png" caption="Comando para construir la imagen" width="500">
 <img src="/images/image.png" caption="Imagen en Docker" width="500">
