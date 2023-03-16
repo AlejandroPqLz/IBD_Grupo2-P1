@@ -49,10 +49,7 @@ Para la realización de la práctica serán necesarios los siguientes servicios:
 
 
 **1.3** Una vez en la carpeta deseada, ejecuta el siguiente comando para clonar el repositorio:
-
-```
-git clone "https://github.com/AlejandroPqLz/IBD_Grupo2-P1.git"
-```
+    git clone "https://github.com/AlejandroPqLz/IBD_Grupo2-P1.git"
 
 <img src="/images/clone.png" caption="Clonamos el repositorio" width="500">
 <img src="/images/cloned_folder.png" caption="Y la carpeta clonada aparecerá en el escritorio" width="500">
@@ -65,9 +62,13 @@ Para este paso, se ha proporcionado el HTTPS del repositorio de GitHub. Esta URL
 
 <img src="/images/ssh.png" caption="Llave SSH" width="200">
 
-**1.4** Una vez clonado el repositorio, accede a la carpeta que se ha creado: `cd IBD_Grupo2-P1`. Esto se hace, pues, queremos ejecutar los archivos de la carpeta para la creación de la imagen a través del terminal.
+**1.4** Una vez clonado el repositorio, accede a la carpeta que se ha creado: 
+    cd IBD_Grupo2-P1 
+    
+Esto se hace, pues, queremos ejecutar los archivos de la carpeta para la creación de la imagen a través del terminal.
 
 <img src="/images/folder_path.png" caption="Comando para situarse en la carpeta recién clonada" width="500">
+
 
 ### 2. Creación del Servicio Virtual basado en Docker (*creación de imagen Docker*)
 
@@ -75,13 +76,11 @@ Mediante el clonado anterior, podrás encontrar todos los archivos necesarios pa
 
 Para la construcción de la imagen, dentro de la carpeta clonada en el **Paso 1**, ejecutamos: `docker build -t <image_name> .` 
 
-***NOTA***: <font color="red">***¡IMPORTANTE!***</font> No se olvide del ` .` al final del comando. Este indica que se debe de buscar dentro del directorio actual el archivo `Dockerfile` para ejecutarlo y poder crear la imagen.
+***NOTA 1***: $${\color{red}***¡IMPORTANTE!***}$$ No se olvide del ` .` al final del comando. Este indica que se debe de buscar dentro del directorio actual el archivo `Dockerfile` para ejecutarlo y poder crear la imagen.
 
-***NOTA***: Nosotros llamaremos a nuestra imagen: `ibd_g2`. Este es un nombre sencillo ya que se trata de la imagen *"intermedia"*, y no de la imagen final que se subirá a **DockerHub**. La imagen final cumplirá con los requisitos adecuados en cuanto al nombre de una imagen.
+***NOTA 2***: Nosotros llamaremos a nuestra imagen: `ibd_g2`. Este es un nombre sencillo ya que se trata de la imagen *"intermedia"*, y no de la imagen final que se subirá a **DockerHub**. La imagen final cumplirá con los requisitos adecuados en cuanto al nombre de una imagen.
 
-```
-docker build -t ibd_g2 .
-```
+    docker build -t ibd_g2 .
 
 <img src="/images/build_image.png" caption="Comando para construir la imagen" width="500">
 <img src="/images/image.png" caption="Imagen en Docker" width="500">
@@ -96,10 +95,7 @@ docker build -t ibd_g2 .
 ### 3. Ejecución de la imagen (*creación de un contenedor Docker*)
 
 Ahora bien, crear la imagen Docker no es suficiente, ahora tenemos que ejecutarla. Para ello, debemos crear un contenedor con el siguiente comando en tu terminal:
-
-```
-docker run -p 7200:7200 -d --name contenedor_rdf ibd_g2
-```
+    docker run -p 7200:7200 -d --name contenedor_rdf ibd_g2
 
 Ejecutamos el contendor en modo "detached", en segundo plano, con `-d` y publicamos el puerto 7200 del contenedor en el host de Docker con `-p`, que será el mismo puerto que está escuchando nuestra imagen creada anteriormente (véase en el archivo Dockerfile: `EXPOSE 7200`).
 
