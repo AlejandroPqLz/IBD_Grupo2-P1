@@ -127,9 +127,9 @@ Ahora desplegaremos el repositorio RDF con los archivos `.ttl` de [datos.gob-inc
 <img src="/images/db_repository.png" caption="Crear un repositorio de tipo grafo" width="500">
 <img src="/images/data.png" caption="Crear un repositorio de tipo grafo" width="500">
 
-¡Ya hemos creado nuestro repositorio RDF! En este repositorio ya están todos los archivos `.ttl` subidos.
+¡Ya hemos creado nuestro repositorio RDF! En este repositorio ya están todos los archivos `.ttl` descargados. Pero no importados.
 
-**5.3** Para poderlos visualizar, nos dirigimos nuevamente al panel izquierdo y seleccionamos `import`.
+**5.3** Para poderlos importar, nos dirigimos nuevamente al panel izquierdo y seleccionamos `import`.
 
 ***NOTA***: Es posible que deba de seleccionar el repositorio `data` para poder visualizar los archivos. Para ello, en la parte superior derecha, despliegue los repositorios disponibles y seleccione `data`.
 
@@ -139,16 +139,21 @@ Ahora desplegaremos el repositorio RDF con los archivos `.ttl` de [datos.gob-inc
 
 <img src="/images/server_files.png" caption="Visualizaciónn de los archivos ttl" width="500">
 
-**5.5** Ahora, para importar los archivos a tu repositorio creado anteriormente, slecciona todos los archivos `.ttl` y pulsa en `import`. (*Espere unos minutos*)
-
-**5.6** Para comprobar que se han importado correctamente, dirígase al panel de la izquierda, y dale click al logo, `GraphDB`. Le debería de aparecer una pantalla nueva donde el número de archivos inferidos es **mayor** a 70, aproximadamente unos 6M.
+**5.5** Ahora, para importar los archivos al repositorio `data`, slecciona todos los archivos `.ttl` y pulsa en `import`. (*Espere unos minutos*)
 
     !IMG!
 
+**5.6** Para comprobar que se han importado correctamente, dirígase a la página princiapl, en el panel de la izquierda, y click en el logo, `GraphDB`. Le debería de aparecer una pantalla nueva donde se debería de tener el repositorio `data` creado anteriormente con todos los archivos de ya importados (aproximadamente unos 6M).
+
+    !IMG del repositorio con todos los archivos ttl ya subidos (6M)!
+
+***NOTA***: Por defecto cuando creas un repositorio aparecen 70 archivos inferidos.
+
+    !IMG del repositorio con los 70 archivos solo!
 
 ### 6. Creación de la imagen con el repositorio RDF
 
-Ya hemos comprobado que el servicio web funciona correctamente y que tenemos todos los archivos `.ttl` importados correctamente en nuestro repositorio RDF llamado `data`. A continuación, lo que nos queda por hacer es guardar el estado actual del contenedor Docker, es decir, guardar la imagen Docker con el repositorio RDF creado. Para ello, debemos de crear una nueva imagen Docker a partir del contenedor que tenemos actualmente, esto se hace sencillamente con el siguiente comando docker: 
+Ya hemos comprobado que el servicio web funciona correctamente y ya tenemos todos los archivos `.ttl` importados correctamente en nuestro repositorio RDF `data`. A continuación, lo que nos queda por hacer es guardar el estado actual del contenedor Docker, es decir, guardar la imagen Docker con el repositorio RDF creado. Para ello, debemos de crear una nueva imagen Docker a partir del contenedor que tenemos actualmente, esto se hace sencillamente con el siguiente comando docker:
 
 `docker commit <container_name> <new_image_name>:<tag>`
 
@@ -173,6 +178,8 @@ Como podemos observar, hemos creado una nueva imagen Docker a partir del contene
 
 **7.1** Una vez registrado en tu cuenta, dirigirte al panel superior y selecciones `Repositories`.
 
+    !IMG de Repositories!
+
 **7.2** Una vez dentro, selecciona `Create Repository`. Se nos reedigirá a una nueva pantalla donde deberemos de rellenar los siguientes campos a rellenar:
 
 - Dejamos el usuario por defecto.
@@ -180,7 +187,9 @@ Como podemos observar, hemos creado una nueva imagen Docker a partir del contene
 - `Description`: Propocionada en el archivo [DH_info](DH_info)
 - `Visibility`: Dejamos la opción `Public` por defecto.
 
-Una vez rellenamos los campos, ciclamos en `Create` y aprovechamos en este paso para añadir el README a nivel de usuario que se encuentra en el archivo [DH_info](DH_info) donde se proporciona información sobre cómo utilizar la imagen que subiremos en los siguientes pasos.
+Una vez rellenamos los campos, ciclamos en `Create` y aprovechamos en este paso para añadir el **README** a nivel de usuario que se encuentra en el archivo [DH_info](DH_info) donde se proporciona información sobre cómo utilizar la imagen que subiremos en los siguientes pasos. Con esto conseguimos documentar la imagen subida a DockerHub correctamente.
+
+    !IMG de la imagen final en dockerhub con la descripcion y el README obv no aparecerá que está subida pero si el repositorio con la info para el uso correcto de la imagen a nivel de usuario!
 
 **7.3** Una vez que se haya creado el repositorio, regrese a la terminal. Antes de subir la imagen, inicie sesión en Dockerhub desde la terminal con el siguiente comando: `docker login -u <username>`
 
@@ -194,17 +203,21 @@ Una vez rellenamos los campos, ciclamos en `Create` y aprovechamos en este paso 
 
 `docker push <username>/ibd_g2-export_data_gob:v3.0`
 
-***NOTA***: Aquí es donde más importancia hay que dar a lo de la versión de la imagen, pues si no especificas una, Docker usar por defecto la versión `latest`.
+***NOTA***: Aquí es donde más importancia hay que dar a lo de la **versión de la imagen**, pues si no especificas una, Docker usar por defecto la versión `latest`.
 
 **7.6** Para comprobar que la imagen se ha publicado correctamente, inicie sesión en DockerHub y seleccione el repositorio que ha creado. Debería ver algo similar a esto:
 
-<!IMG>
+    !IMG de dockerhub del reporsiorio de la imagen donde ya debría de estar subida!
 
 **7.7** Otra forma de comprobar que la imagen se ha publicado correctamente es:
 
 - *OPCIÓN 1:* Pedirle a un compañero que ejecute el siguiente comando: `docker pull <username>/ibd_g2-export_data_gob:v3.0`
 
+    !IMG del pull!
+
 - *OPCIÓN 2:* Dirigirse a [Play with Docker](https://labs.play-with-docker.com/), darle a `Login` y posteriormente a `docker` y finalmente a `Start`. Una vez dentro, en el panel izquierdo, dale a `+ ADD NEW INSTANCE`. Se le abrirá una terminal nueva, en la que deberás de ejecutar el siguiente comando: `docker pull <username>/ibd_g2-export_data_gob:v3.0`
+
+    !IMG del pull en play with docker!
 
 Si todo ha ido bien, en ambas opciones, la imagen debería de descargarse correctamente.
 
