@@ -50,7 +50,9 @@ Para la realización de la práctica serán necesarios los siguientes servicios:
 
 **1.3** Una vez en la carpeta deseada, ejecuta el siguiente comando para clonar el repositorio:
 
-`git clone "https://github.com/AlejandroPqLz/IBD_Grupo2-P1.git"`
+```
+git clone "https://github.com/AlejandroPqLz/IBD_Grupo2-P1.git"
+```
 
 <img src="/images/clone.png" caption="Clonamos el repositorio" width="500">
 <img src="/images/cloned_folder.png" caption="Y la carpeta clonada aparecerá en el escritorio" width="500">
@@ -76,6 +78,10 @@ Para la construcción de la imagen, dentro de la carpeta clonada en el **Paso 1*
 ***NOTA***: <font color="red">***¡IMPORTANTE!***</font> No se olvide del ` .` al final del comando. Este indica que se debe de buscar dentro del directorio actual el archivo `Dockerfile` para ejecutarlo y poder crear la imagen.
 
 ***NOTA***: Nosotros llamaremos a nuestra imagen: `ibd_g2`. Este es un nombre sencillo ya que se trata de la imagen *"intermedia"*, y no de la imagen final que se subirá a **DockerHub**. La imagen final cumplirá con los requisitos adecuados en cuanto al nombre de una imagen.
+
+```
+docker build -t ibd_g2 .
+```
 
 <img src="/images/build_image.png" caption="Comando para construir la imagen" width="500">
 <img src="/images/image.png" caption="Imagen en Docker" width="500">
