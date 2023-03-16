@@ -198,7 +198,7 @@ Una vez rellenamos los campos, ciclamos en `Create` y aprovechamos en este paso 
 
     !IMG de la imagen final en dockerhub con la descripcion y el README obv no aparecerá que está subida pero si el repositorio con la info para el uso correcto de la imagen a nivel de usuario!
 
-**7.3** Una vez que se haya creado el repositorio, regrese a la terminal. Antes de subir la imagen, inicie sesión en Dockerhub desde la terminal con el siguiente comando: 
+**7.3** Una vez que se haya creado el repositorio, regrese a la terminal. Antes de subir la imagen, inicie sesión en Dockerhub desde la terminal con el siguiente comando:
 
 ```
 docker login -u <username>
