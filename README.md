@@ -262,7 +262,9 @@ docker push <username>/ibd_g2-export_data_gob:v3.2
 
 **7.7** Otra forma de comprobar que la imagen se ha publicado correctamente es:
 
-- *OPCIÓN 1:* Pedirle a un compañero que ejecute el siguiente comando: `docker pull <username>/ibd_g2-export_data_gob:v3.2`
+- *OPCIÓN 1:* Pedirle a un compañero que ejecute el siguiente comando: 
+
+     docker run -p 7200:7200 carlotaupm/ibd_g2-export_data_gob:v3.2
 
 En este caso usar:
 ```
@@ -274,16 +276,20 @@ docker pull carlotaupm/ibd_g2-export_data_gob:v3.2
 - *OPCIÓN 2:* Dirigirse a [Play with Docker](https://labs.play-with-docker.com/), darle a `Login` y posteriormente a `docker` y finalmente a `Start`. Una vez dentro, en el panel izquierdo, dale a `+ ADD NEW INSTANCE`. Se le abrirá una terminal nueva, en la que deberás de ejecutar el siguiente comando: `docker pull <username>/ibd_g2-export_data_gob:v3.2`
 
 En este caso usar:
-```
-docker pull carlotaupm/ibd_g2-export_data_gob:v3.2
-```
+
+    docker run -p 7200:7200 carlotaupm/ibd_g2-export_data_gob:v3.2
 
 <img src="/images/7.b.1.png" caption="Imagen" width="500">
 <img src="/images/7.b.2.png" caption="Imagen" width="300">
 <img src="/images/7.b.3.png" caption="Imagen" width="500">
 <img src="/images/7.b.4.png" caption="Imagen" width="500">
 
-Si todo ha ido bien, en ambas opciones, la imagen debería de descargarse correctamente.
+Si todo ha ido bien, en ambas opciones, la imagen debería de descargarse correctamente y el servidor GraphDB debería de estar levantado en el puerto 7200. Si se dirije a `http://localhost:7200/`, debería de ver el repositorio `data` con los datos de incendios forestales:
+
+***NOTA***: Debido a la enorme cantidad de archivos que contiene el contenedor, el servicio tardará en levantarse (*aproximadamente 5 minutos*)
+
+<img src="/images/7.b.5.png" caption="Imagen" width="500">
+
 
 Finalmente, hemos completado el objetivo de la práctica, pues tenemos una imagen (`ibd_g2-export_data_gob`) Docker utilizada para desplegar un repositorio RDF con los datos Turtle (.ttl) de un conjunto de datos de incendios forestales, disponibles en [datos.gob](https://datos.gob.es/es) e importados en GraphDB. Esta imagen se basa en la última versión de la plataforma GraphDB proporcionada por Ontotext.
 
