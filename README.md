@@ -99,6 +99,11 @@ Ahora bien, crear la imagen Docker no es suficiente, ahora tenemos que ejecutarl
 
 Ejecutamos el contendor en modo "detached", en segundo plano, con `-d` y publicamos el puerto 7200 del contenedor en el host de Docker con `-p`, que será el mismo puerto que está escuchando nuestra imagen creada anteriormente (véase en el archivo Dockerfile: `EXPOSE 7200`).
 
+![My image](/images/build_container.png)
+
+{:.image-caption}
+*The caption for my image*
+
 <img src="/images/build_container.png" caption="Comando para construir el contenedor" width="500">
 <img src="/images/container.png" caption="Contenedor en Docker" width="500">
 
