@@ -20,9 +20,13 @@ Antes de utilizar esta imagen, asegúrese de que su sistema cumpla tenga Docker 
 
 Para utilizar esta imagen, siga los siguientes pasos:
 
-**1.** Descargue la imagen desde DockerHub ejecutando el siguiente comando: `docker pull carlotaupm/ibd-g2-export_data_gob:v3.2`
+**1.** Descargue la imagen desde DockerHub ejecutando el siguiente comando:
 
-**2.** Cree un contenedor a partir de la imagen descargada: `docker run -p 7200:7200 -d --name rdf-repo carlotaupm/ibd-g2-export_data_gob:v3.2`
+`docker pull carlotaupm/ibd_g2-export_data_gob:v3.2`
+
+**2.** Cree un contenedor a partir de la imagen descargada:
+
+`docker run -p 7200:7200 -d --name rdf-repo carlotaupm/ibd_g2-export_data_gob:v3.2`
 
 Este comando creará un contenedor de Docker, en segundo plano, con el nombre "rdf-repo" y expondrá el puerto 7200 en el host local.
 
@@ -36,7 +40,7 @@ Para configurar esta imagen para sus necesidades específicas, puede seguir los 
 
 ```
 # A partir de nuestra imagen
-FROM ibd-g2-export_data_gob:v3.1
+FROM ibd_g2-export_data_gob:v3.1
 
 # Configurar el repositorio GraphDB
 RUN <comandos de configuración>
