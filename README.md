@@ -71,11 +71,11 @@ Para este paso, se ha proporcionado el HTTPS del repositorio de GitHub. Esta URL
 
 Mediante el clonado anterior, podrás encontrar todos los archivos necesarios para realizar el objetivo comentado con anterioridad, es decir, todos los archivos del repositorio de GitHub se encontrarán en tu carpeta local que hayas elegido. Entre ellos, se encuentra el archivo `Dockerfile` que contiene las instrucciones necesarias para crear la imagen Docker. A partir de este archivo, se creará la imagen Docker que contendrá el servicio virtual que se desplegará en cualquier contenedor con esa imagen.
 
-Para la construcción de la imagen, dentro de la carpeta clonada en el **Paso 1**, ejecutamos: `docker build -t <image_name> .`. 
+Para la construcción de la imagen, dentro de la carpeta clonada en el **Paso 1**, ejecutamos: `docker build -t <image_name> .` 
 
 ***NOTA***: <font color="red">***¡IMPORTANTE!***</font> No se olvide del ` .` al final del comando. Este indica que se debe de buscar dentro del directorio actual el archivo `Dockerfile` para ejecutarlo y poder crear la imagen.
 
-***NOTA***: Nosotros llamaremos a nuestra imagen: `ibd_g2`. Será un nombre sencillo, pues es la imagen "intermedia", no la final que subiremos a DockerHub. Esta sí tendrá los requisitos esperados en cuanto al nombre de una imagen.
+***NOTA***: Nosotros llamaremos a nuestra imagen: `ibd_g2`. Este es un nombre sencillo ya que se trata de la imagen *"intermedia"*, y no de la imagen final que se subirá a **DockerHub**. La imagen final cumplirá con los requisitos adecuados en cuanto al nombre de una imagen.
 
 <img src="/images/build_image.png" caption="Comando para construir la imagen" width="500">
 <img src="/images/image.png" caption="Imagen en Docker" width="500">
@@ -127,7 +127,7 @@ Ahora desplegaremos el repositorio RDF con los archivos `.ttl` de [datos.gob-inc
 <img src="/images/db_repository.png" caption="Crear un repositorio de tipo grafo" width="500">
 <img src="/images/data.png" caption="Crear un repositorio de tipo grafo" width="500">
 
-¡Ya hemos creado nuestro repositorio RDF! En este repositorio ya están todos los archivos `.ttl` importados.
+¡Ya hemos creado nuestro repositorio RDF! En este repositorio ya están todos los archivos `.ttl` subidos.
 
 **5.3** Para poderlos visualizar, nos dirigimos nuevamente al panel izquierdo y seleccionamos `import`.
 
@@ -138,6 +138,13 @@ Ahora desplegaremos el repositorio RDF con los archivos `.ttl` de [datos.gob-inc
 **5.4** Una vez dentro de tu repositorio, selecciona la pestaña `Server files`. Si todo se ha realizado correctamente, ahí deberían estar todos los archivos `.ttl` de [datos.gob-incendios_forestales](https://datos.gob.es/es/catalogo/e05068001-estadistica-general-de-incendios-forestales).
 
 <img src="/images/server_files.png" caption="Visualizaciónn de los archivos ttl" width="500">
+
+**5.5** Ahora, para importar los archivos a tu repositorio creado anteriormente, slecciona todos los archivos `.ttl` y pulsa en `import`. (*Espere unos minutos*)
+
+**5.6** Para comprobar que se han importado correctamente, dirígase al panel de la izquierda, y dale click al logo, `GraphDB`. Le debería de aparecer una pantalla nueva donde el número de archivos inferidos es **mayor** a 70, aproximadamente unos 6M.
+
+    !IMG!
+
 
 ### 6. Creación de la imagen con el repositorio RDF
 
