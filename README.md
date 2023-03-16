@@ -37,6 +37,7 @@ Para la realización de la práctica serán necesarios los siguientes servicios:
 
 ***NOTA***: si se realiza desde MAC OS teclee `cmd`+`espace` para buscar y abrir la terminal de tu ordenador.
 
+![image](/images/search.png "Barra de buscador en MAC OS para buscar el terminal") 
 <img src="/images/search.png" caption="Barra de buscador en MAC OS para buscar el terminal" width="500">
 
 <img src="/images/terminal.png" caption="Buscar la terminal en MAC OS" width="500">
