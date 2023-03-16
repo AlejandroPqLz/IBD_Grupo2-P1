@@ -37,15 +37,21 @@ Para la realización de la práctica serán necesarios los siguientes servicios:
 
 ***NOTA***: si se realiza desde MAC OS teclee `cmd`+`espace` para buscar y abrir la terminal de tu ordenador.
 
-![image](/images/search.png "Barra de buscador en MAC OS para buscar el terminal") 
+![image](/images/search.png "Barra de buscador en MAC OS para buscar el terminal")
 
 <img src="/images/search.png" caption="Barra de buscador en MAC OS para buscar el terminal" width="500">
 
 <img src="/images/terminal.png" caption="Buscar la terminal en MAC OS" width="500">
 
-**1.2** Una vez en la terminal, sitúate en la carpeta donde quieres clonar el repositorio, puedes hacerlo usando el siguiente comando: `cd <path>`.
+**1.2** Una vez en la terminal, sitúate en la carpeta donde quieres clonar el repositorio, puedes hacerlo usando el siguiente comando: 
 
-***NOTA***: Si su ruta tiene algún espacio o carácter especial, es necesario poner la ruta entre comillas dobles: `cd "<path>"`.
+```cd <path>```
+
+***NOTA***: Si su ruta tiene algún espacio o carácter especial, es necesario poner la ruta entre comillas dobles:
+
+```
+cd "<path>"
+```
 
 <img src="/images/desktop.png" caption="En este caso, nos situaremos en el escritorio para clonar la carpeta" width="500">
 
@@ -64,35 +70,44 @@ Para este paso, se ha proporcionado el HTTPS del repositorio de GitHub. Esta URL
 
 <img src="/images/ssh.png" caption="Llave SSH" width="200">
 
-**1.4** Una vez clonado el repositorio, accede a la carpeta que se ha creado: 
-    cd IBD_Grupo2-P1 
-    
+**1.4** Una vez clonado el repositorio, accede a la carpeta clonada:
+
+```
+cd IBD_Grupo2-P1 
+```
+
 Esto se hace, pues, queremos ejecutar los archivos de la carpeta para la creación de la imagen a través del terminal.
 
 <img src="/images/folder_path.png" caption="Comando para situarse en la carpeta recién clonada" width="500">
-
 
 ### 2. Creación del Servicio Virtual basado en Docker (*creación de imagen Docker*)
 
 Mediante el clonado anterior, podrás encontrar todos los archivos necesarios para realizar el objetivo comentado con anterioridad, es decir, todos los archivos del repositorio de GitHub se encontrarán en tu carpeta local que hayas elegido. Entre ellos, se encuentra el archivo `Dockerfile` que contiene las instrucciones necesarias para crear la imagen Docker. A partir de este archivo, se creará la imagen Docker que contendrá el servicio virtual que se desplegará en cualquier contenedor con esa imagen.
 
-Para la construcción de la imagen, dentro de la carpeta clonada en el **Paso 1**, ejecutamos: `docker build -t <image_name> .` 
+Para la construcción de la imagen, dentro de la carpeta clonada en el **Paso 1**, ejecutamos: 
+
+```
+docker build -t <image_name> .
+```
 
 ***NOTA 1***: ${\color{red}¡IMPORTANTE!}$ No se olvide del ` .` al final del comando. Este indica que se debe de buscar dentro del directorio actual el archivo `Dockerfile` para ejecutarlo y poder crear la imagen.
 
 ***NOTA 2***: Nosotros llamaremos a nuestra imagen: `ibd_g2`. Este es un nombre sencillo ya que se trata de la imagen *"intermedia"*, y no de la imagen final que se subirá a **DockerHub**. La imagen final cumplirá con los requisitos adecuados en cuanto al nombre de una imagen.
 
-    docker build -t ibd_g2 .
+```
+docker build -t ibd_g2 .
+```
 
 <img src="/images/build_image.png" caption="Comando para construir la imagen" width="500">
 <img src="/images/image.png" caption="Imagen en Docker" width="500">
 
 ¡Perfecto!, ya hemos creado una imagen Docker. Puedes visualizarla ejecutando el siguiente comando en tu terminal: `docker images`
 
+```
     REPOSITORY   TAG       IMAGE ID       CREATED          SIZE
     ibd_g2       latest    64920a562003   6 minutes ago   681MB
     ...          ...       ...            ...              ...
-
+```
 
 ### 3. Ejecución de la imagen (*creación de un contenedor Docker*)
 
