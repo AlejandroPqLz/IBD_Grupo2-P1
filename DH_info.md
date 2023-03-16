@@ -20,7 +20,7 @@ Antes de utilizar esta imagen, asegúrese de que su sistema cumpla tenga Docker 
 
 Para utilizar esta imagen, siga los siguientes pasos:
 
-**1.** Descargue la imagen desde DockerHub ejecutando el siguiente comando: `docker pull ibd-g2-export_data_gob:v3.0`
+**1.** Descargue la imagen desde DockerHub ejecutando el siguiente comando: `docker pull ibd-g2-export_data_gob:v3.1`
 
 **2.** Cree un contenedor a partir de la imagen descargada: `docker run -p 7200:7200 -d --name rdf-repo_ibd-g2-export_data_gob`
 
@@ -36,7 +36,7 @@ Para configurar esta imagen para sus necesidades específicas, puede seguir los 
 
 ```
 # A partir de nuestra imagen
-FROM ibd-g2-export_data_gob:v3.0
+FROM ibd-g2-export_data_gob:v3.1
 
 # Configurar el repositorio GraphDB
 RUN <comandos de configuración>

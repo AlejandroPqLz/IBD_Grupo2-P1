@@ -176,21 +176,21 @@ Ahora desplegaremos el repositorio RDF con los archivos `.ttl` de [datos.gob-inc
 Ya hemos comprobado que el servicio web funciona correctamente y que tenemos todos los archivos `.ttl` importados correctamente en nuestro repositorio RDF llamado `data`. A continuación, lo que nos queda por hacer es guardar el estado actual del contenedor Docker, es decir, guardar la imagen Docker con el repositorio RDF creado. Para ello, debemos de crear una nueva imagen Docker a partir del contenedor que tenemos actualmente, esto se hace sencillamente con el siguiente comando docker:
 
 ```
-docker commit graphdb ibd_g2-export_data_gob:v3.0
+docker commit graphdb ibd_g2-export_data_gob:v3.1
 ```
 
-***NOTA***: Utilizaremos la versión de nuestro último *release* de GitHub, que en este caso es la `v3.0`:
+***NOTA***: Utilizaremos la versión de nuestro último *release* de GitHub, que en este caso es la `v3.1`:
 
 Nótese que esta ya es la imagen final que satisface los objetivos de la práctica. Por ello, por ser ya la imagen final, cumpliremos con los requisitos que se esperan de en cuanto al nombre de la imagen.
 
 Para comprobar que todo se ha ejecutado correctamente, visualizamos las imagenes disponibles con: `docker images`
 
     REPOSITORY               TAG       IMAGE ID       CREATED          SIZE
-    ibd_g2-export_data_gob   v3.0      15439fac5958   2 minutes ago   1.73GB
+    ibd_g2-export_data_gob   v3.1      15439fac5958   2 minutes ago   1.73GB
     ibd_g2                   latest    87f8be82a675   6 hours ago     1.67GB
     ...                      ...       ...            ...              ...
 
-Como podemos observar, hemos creado una nueva imagen Docker a partir del contenedor `graphdb` que se llama `ibd_g2-export_data_gob` y que tiene la versión más reciente de nuestro repositorio: `v3.0`. Esta imagen Docker contiene el repositorio RDF creado y todos los archivos `.ttl` importados, por tanto, deberíamos de poder ver que la nueva imagen tiene un tamaño mayor que la imagen anterior.
+Como podemos observar, hemos creado una nueva imagen Docker a partir del contenedor `graphdb` que se llama `ibd_g2-export_data_gob` y que tiene la versión más reciente de nuestro repositorio: `v3.1`. Esta imagen Docker contiene el repositorio RDF creado y todos los archivos `.ttl` importados, por tanto, deberíamos de poder ver que la nueva imagen tiene un tamaño mayor que la imagen anterior.
 
 ### 7. Publicación de la imagen en DockerHub
 
@@ -222,7 +222,7 @@ docker login -u <username>
 **7.4** Después de iniciar sesión, etiquete su imagen con su nombre de usuario de DockerHub. Si no etiqueta su imagen, Docker no sabrá, a la hora de subir su imagne, a qué repositorio de DockerHub subirla:
 
 ```
-docker tag ibd_g2-export_data_gob:v3.0 <username>/ibd_g2-export_data_gob:v3.0
+docker tag ibd_g2-export_data_gob:v3.0 <username>/ibd_g2-export_data_gob:v3.1
 ```
 
 ***NOTA***: `<username>` es su nombre de usuario de DockerHub. Cambie dicho parámetro
@@ -230,7 +230,7 @@ docker tag ibd_g2-export_data_gob:v3.0 <username>/ibd_g2-export_data_gob:v3.0
 **7.5** Una vez etiquetada, ya podemos subir la imagen a DockerHub:
 
 ```
-docker push <username>/ibd_g2-export_data_gob:v3.0
+docker push <username>/ibd_g2-export_data_gob:v3.1
 ```
 
 
@@ -242,11 +242,11 @@ docker push <username>/ibd_g2-export_data_gob:v3.0
 
 **7.7** Otra forma de comprobar que la imagen se ha publicado correctamente es:
 
-- *OPCIÓN 1:* Pedirle a un compañero que ejecute el siguiente comando: `docker pull <username>/ibd_g2-export_data_gob:v3.0`
+- *OPCIÓN 1:* Pedirle a un compañero que ejecute el siguiente comando: `docker pull <username>/ibd_g2-export_data_gob:v3.1`
 
     !IMG del pull!
 
-- *OPCIÓN 2:* Dirigirse a [Play with Docker](https://labs.play-with-docker.com/), darle a `Login` y posteriormente a `docker` y finalmente a `Start`. Una vez dentro, en el panel izquierdo, dale a `+ ADD NEW INSTANCE`. Se le abrirá una terminal nueva, en la que deberás de ejecutar el siguiente comando: `docker pull <username>/ibd_g2-export_data_gob:v3.0`
+- *OPCIÓN 2:* Dirigirse a [Play with Docker](https://labs.play-with-docker.com/), darle a `Login` y posteriormente a `docker` y finalmente a `Start`. Una vez dentro, en el panel izquierdo, dale a `+ ADD NEW INSTANCE`. Se le abrirá una terminal nueva, en la que deberás de ejecutar el siguiente comando: `docker pull <username>/ibd_g2-export_data_gob:v3.1`
 
     !IMG del pull en play with docker!
 
