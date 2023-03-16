@@ -20,7 +20,7 @@ Todos los archivos han sido creados y modificados por los miembros del **Grupo 2
 
 ## Objetivo
 
-- Crear una imagen Docker, disponible en DockerHub, que despliegue un repositorio RDF con datos Turtle (.ttl) extraídos de [datos.gob-incendios_forestales](https://datos.gob.es/es/catalogo/e05068001-estadistica-general-de-incendios-forestales). Nosotros lo haremos con el conjunto de datos sobre incendios forestales, pero se pueden elegir otros sin ningún problema. Para más información sobre otros datasets puede consultar: [datos.gob](https://datos.gob.es/es)
+Crear una imagen Docker, disponible en DockerHub, que despliegue un repositorio RDF con datos Turtle (.ttl) extraídos de [datos.gob](https://datos.gob.es/). Nosotros lo haremos con el conjunto de datos sobre [incendios forestales](https://datos.gob.es/es/catalogo/e05068001-estadistica-general-de-incendios-forestales), pero se pueden elegir otros sin ningún problema. Para más información sobre otros datasets puede consultar: [datos.gob/catalogo](https://datos.gob.es/es/catalogo)
 
 ## Requisitos
 
@@ -43,9 +43,10 @@ Para la realización de la práctica serán necesarios los siguientes servicios:
 
 **1.2** Una vez en la terminal, sitúate en la carpeta donde quieres clonar el repositorio, puedes hacerlo usando el siguiente comando: `cd <path>`.
 
+***NOTA***: Si su ruta tiene algún espacio o carácter especial, es necesario poner la ruta entre comillas dobles: `cd "<path>"`.
+
 <img src="/images/desktop.png" caption="En este caso, nos situaremos en el escritorio para clonar la carpeta" width="500">
 
-***NOTA***: Si su ruta tiene algún espacio o carácter especial, es necesario poner la ruta entre comillas dobles: `cd "<path>"`.
 
 **1.3** Una vez en la carpeta deseada, ejecuta el siguiente comando para clonar el repositorio:
 
